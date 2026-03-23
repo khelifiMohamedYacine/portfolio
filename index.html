@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,71 +22,24 @@
   <header id="navbar">
     <div class="nav-inner">
 
-      <!-- Left: logo + desktop links -->
+      <!-- Left: logo only -->
       <div class="nav-left">
         <a href="#particle-intro" class="nav-logo">MYK<span class="logo-dot">.</span></a>
-
-        <nav class="nav-desktop" aria-label="Primary">
-          <ul class="nav-links">
-            <li><a href="#hero"     class="nav-link">Home</a></li>
-            <li><a href="#about"    class="nav-link">About</a></li>
-
-            <!-- Projects dropdown -->
-            <li class="nav-has-dropdown">
-              <button class="nav-link nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                Projects
-                <svg class="nav-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M1 1l5 5 5-5"/>
-                </svg>
-              </button>
-              <div class="nav-dropdown" role="menu">
-                <div class="nav-dropdown-grid">
-                  <a href="project.html?id=brain-tumor" class="nav-dropdown-link" role="menuitem">
-                    <span class="nav-dd-icon">&#x1F9E0;</span>
-                    <span class="nav-dd-text">
-                      <strong>AI &amp; ML</strong>
-                      <span>Brain tumors, vision, LLMs</span>
-                    </span>
-                  </a>
-                  <a href="project.html?id=syntax-squad" class="nav-dropdown-link" role="menuitem">
-                    <span class="nav-dd-icon">&#x1F310;</span>
-                    <span class="nav-dd-text">
-                      <strong>Web Dev</strong>
-                      <span>Django, Flask, PHP</span>
-                    </span>
-                  </a>
-                  <a href="project.html?id=sentiment-analysis" class="nav-dropdown-link" role="menuitem">
-                    <span class="nav-dd-icon">&#x1F4CA;</span>
-                    <span class="nav-dd-text">
-                      <strong>NLP</strong>
-                      <span>Sentiment, text mining</span>
-                    </span>
-                  </a>
-                  <a href="project.html?id=logic-programming" class="nav-dropdown-link" role="menuitem">
-                    <span class="nav-dd-icon">&#x2699;&#xFE0F;</span>
-                    <span class="nav-dd-text">
-                      <strong>Systems</strong>
-                      <span>Haskell, Prolog, game dev</span>
-                    </span>
-                  </a>
-                </div>
-                <div class="nav-dropdown-footer">
-                  <span>12 projects total &mdash;</span>
-                  <a href="#projects" class="nav-dropdown-all">View all &rarr;</a>
-                </div>
-              </div>
-            </li>
-
-            <li><a href="#skills"   class="nav-link">Skills</a></li>
-            <li><a href="#contact"  class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
       </div>
 
       <!-- Right: CTA buttons + hamburger -->
       <div class="nav-right">
         <a href="https://github.com/khelifiMohamedYacine" target="_blank" rel="noopener" class="nav-cta nav-cta-ghost">GitHub</a>
         <a href="https://linkedin.com/in/khelifi-mohamed-yacine-917382293" target="_blank" rel="noopener" class="nav-cta nav-cta-primary">LinkedIn</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="ar">ع</button>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
           <!-- Animated hamburger → X (ported from MenuToggleIcon) -->
           <svg class="nav-toggle-icon" viewBox="0 0 32 32" fill="none"
@@ -99,27 +53,23 @@
       </div>
     </div>
 
-    <!-- Mobile menu panel -->
+    <!-- Mobile menu panel (simplified) -->
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
       <div class="mobile-menu-inner">
-        <ul class="mobile-nav-links">
-          <li><a href="#hero"     class="mobile-nav-link">Home</a></li>
-          <li><a href="#about"    class="mobile-nav-link">About</a></li>
-          <li>
-            <span class="mobile-nav-section">Projects</span>
-            <div class="mobile-nav-sub">
-              <a href="project.html?id=brain-tumor" class="mobile-nav-link">AI &amp; ML</a>
-              <a href="project.html?id=syntax-squad" class="mobile-nav-link">Web Dev</a>
-              <a href="project.html?id=sentiment-analysis" class="mobile-nav-link">NLP</a>
-              <a href="project.html?id=logic-programming" class="mobile-nav-link">Systems</a>
-            </div>
-          </li>
-          <li><a href="#skills"   class="mobile-nav-link">Skills</a></li>
-          <li><a href="#contact"  class="mobile-nav-link">Contact</a></li>
-        </ul>
         <div class="mobile-nav-cta">
           <a href="https://github.com/khelifiMohamedYacine" target="_blank" rel="noopener" class="nav-cta nav-cta-ghost" style="width:100%;justify-content:center;">GitHub</a>
           <a href="https://linkedin.com/in/khelifi-mohamed-yacine-917382293" target="_blank" rel="noopener" class="nav-cta nav-cta-primary" style="width:100%;justify-content:center;">LinkedIn</a>
+        </div>
+        <div class="mobile-nav-controls">
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="ar">ع</button>
+          </div>
+          <button class="theme-toggle" aria-label="Toggle theme">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -133,7 +83,7 @@
     <div class="hero-content">
 
       <div class="hero-text reveal-right">
-        <p class="hero-greeting">Hello, I'm</p>
+        <p class="hero-greeting" data-i18n="hero.greeting">Hello, I'm</p>
         <h1 class="hero-name">
           <span>Mohamed</span>
           <span class="name-accent">Yacine</span>
@@ -144,33 +94,33 @@
           <span class="cursor-blink">_</span>
           <span class="role-label"> ]</span>
         </div>
-        <p class="hero-bio">
+        <p class="hero-bio" data-i18n="hero.bio">
           Computer Science student at the University of Exeter. I build full-stack applications
           and work with machine learning, computer vision, and NLP.
           Outside of code: anime, drawing, books, and writing.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">
-            <span class="btn-text">View My Work</span>
+            <span class="btn-text" data-i18n="hero.work">View My Work</span>
             <span class="btn-shine"></span>
           </a>
-          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-          <a href="personal.html" class="btn btn-ghost">More About My Life</a>
+          <a href="#contact" class="btn btn-ghost" data-i18n="hero.touch">Get In Touch</a>
+          <a href="personal.html" class="btn btn-ghost" data-i18n="hero.life">More About My Life</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
             <span class="stat-num" data-target="12">0</span>
-            <span class="stat-label">Projects</span>
+            <span class="stat-label" data-i18n="stat.projects">Projects</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
             <span class="stat-num" data-target="8">0</span>
-            <span class="stat-label">Technologies</span>
+            <span class="stat-label" data-i18n="stat.tech">Technologies</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
             <span class="stat-num" data-target="3">0</span>
-            <span class="stat-label">Years Coding</span>
+            <span class="stat-label" data-i18n="stat.years">Years Coding</span>
           </div>
         </div>
       </div>
@@ -197,18 +147,18 @@
   <!-- ─── About ──────────────────────────────────────── -->
   <section id="about">
     <div class="section-header reveal-up">
-      <p class="section-tag">// who I am</p>
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <p class="section-tag" data-i18n="about.tag">// who I am</p>
+      <h2 class="section-title"><span data-i18n="about.h">About</span> <span class="accent" data-i18n="about.accent">Me</span></h2>
     </div>
 
     <div class="about-grid">
       <div class="about-text reveal-left">
-        <p class="about-lead">
+        <p class="about-lead" data-i18n-html="about.lead">
           I'm <strong>Khelifi Mohamed Yacine</strong>, a final-year Computer Science student at the University of Exeter.
           I've worked across machine learning, computer vision, NLP, and full-stack development,
           from training CNNs on medical imaging data to building microservice backends with language model integrations.
         </p>
-        <p class="about-body">
+        <p class="about-body" data-i18n="about.body">
           My degree covered machine learning, computer vision, NLP, full-stack web development,
           functional programming, and team-based software engineering.
           Every project pushed me into a different part of the stack.
@@ -222,9 +172,9 @@
             <div class="info-card-front">
               <span class="card-icon-lg">&#x1F393;</span>
               <div class="card-front-body">
-                <h3 class="card-front-title">BSc Computer Science</h3>
-                <p class="card-front-sub">University of Exeter</p>
-                <p class="card-front-year">Final Year &middot; 2022 – 2025</p>
+                <h3 class="card-front-title" data-i18n="card.degree">BSc Computer Science</h3>
+                <p class="card-front-sub" data-i18n="card.uni">University of Exeter</p>
+                <p class="card-front-year" data-i18n="card.year">Final Year &middot; 2022 – 2025</p>
               </div>
             </div>
             <div class="info-card-back">
@@ -232,8 +182,8 @@
                 <img src="../pics/University-of-Exeter.png" alt="University of Exeter">
               </div>
               <div class="card-back-body">
-                <p class="card-back-headline">University of Exeter</p>
-                <p class="card-back-text">Final year studying Machine Learning, Computer Vision, NLP, Functional Programming, and Software Engineering. Theory and practical systems side by side.</p>
+                <p class="card-back-headline" data-i18n="card.uni">University of Exeter</p>
+                <p class="card-back-text" data-i18n="card.uni.back">Final year studying Machine Learning, Computer Vision, NLP, Functional Programming, and Software Engineering. Theory and practical systems side by side.</p>
               </div>
             </div>
           </div>
@@ -244,9 +194,9 @@
             <div class="info-card-front">
               <span class="card-icon-lg">&#x1F4CD;</span>
               <div class="card-front-body">
-                <h3 class="card-front-title">United Kingdom</h3>
-                <p class="card-front-sub">Exeter, England</p>
-                <p class="card-front-year">Remote &middot; Hybrid &middot; On-site</p>
+                <h3 class="card-front-title" data-i18n="card.location">United Kingdom</h3>
+                <p class="card-front-sub" data-i18n="card.city">Exeter, England</p>
+                <p class="card-front-year" data-i18n="card.avail">Remote &middot; Hybrid &middot; On-site</p>
               </div>
             </div>
             <div class="info-card-back">
@@ -254,8 +204,8 @@
                 <img src="../pics/england.jpg" alt="Exeter, England">
               </div>
               <div class="card-back-body">
-                <p class="card-back-headline">Open to the World</p>
-                <p class="card-back-text">Based in Exeter, UK. Open to remote, hybrid, or on-site roles. I've lived across 5 countries and adjust easily to new team environments.</p>
+                <p class="card-back-headline" data-i18n="card.loc.hl">Open to the World</p>
+                <p class="card-back-text" data-i18n="card.loc.back">Based in Exeter, UK. Open to remote, hybrid, or on-site roles. I've lived across 5 countries and adjust easily to new team environments.</p>
               </div>
             </div>
           </div>
@@ -270,8 +220,8 @@
   <!-- ─── Projects ───────────────────────────────────── -->
   <section id="projects">
     <div class="section-header reveal-up">
-      <p class="section-tag">// what I've built</p>
-      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      <p class="section-tag" data-i18n="proj.tag">// what I've built</p>
+      <h2 class="section-title"><span data-i18n="proj.h">Featured</span> <span class="accent" data-i18n="proj.accent">Projects</span></h2>
     </div>
 
     <!-- ─── Orbital Projects Display ─────────────────────── -->
@@ -298,7 +248,7 @@
       <!-- Notice — below stage, outside rings -->
       <div class="orb-notice" id="orb-notice">
         <span class="orb-notice-dot"></span>
-        Click the central circuit to pause rotation, then select a project node
+        <span data-i18n="orb.notice">Click the central circuit to pause rotation, then select a project node</span>
       </div>
 
       <!-- Side info panel -->
@@ -306,11 +256,11 @@
 
         <div id="orb-panel-idle">
           <div class="orb-idle-icon">&#x25CE;</div>
-          <p class="orb-idle-hint">Click any node<br>to see project details</p>
+          <p class="orb-idle-hint" data-i18n-html="orb.idle">Click any node<br>to see project details</p>
           <div class="orb-ring-legend">
-            <div class="orb-legend-row"><span class="orb-leg-dot r1"></span><span>Inner — Core Projects</span></div>
-            <div class="orb-legend-row"><span class="orb-leg-dot r2"></span><span>Middle — Academic</span></div>
-            <div class="orb-legend-row"><span class="orb-leg-dot r3"></span><span>Outer — Additional</span></div>
+            <div class="orb-legend-row"><span class="orb-leg-dot r1"></span><span data-i18n="orb.r1">Inner — Core Projects</span></div>
+            <div class="orb-legend-row"><span class="orb-leg-dot r2"></span><span data-i18n="orb.r2">Middle — Academic</span></div>
+            <div class="orb-legend-row"><span class="orb-leg-dot r3"></span><span data-i18n="orb.r3">Outer — Additional</span></div>
           </div>
         </div>
 
@@ -324,7 +274,7 @@
           <p class="orb-detail-desc" id="pop-desc">Description.</p>
           <div class="orb-detail-tech" id="pop-tech"></div>
           <a class="btn btn-primary orb-detail-btn" id="pop-link" href="#">
-            <span class="btn-text">View Details &rarr;</span>
+            <span class="btn-text" data-i18n="orb.view">View Details →</span>
             <span class="btn-shine"></span>
           </a>
         </div>
@@ -683,8 +633,8 @@
   <!-- ─── Skills ─────────────────────────────────────── -->
   <section id="skills">
     <div class="section-header reveal-up">
-      <p class="section-tag">// what I work with</p>
-      <h2 class="section-title">Skills &amp; <span class="accent">Tech</span></h2>
+      <p class="section-tag" data-i18n="skills.tag">// what I work with</p>
+      <h2 class="section-title"><span data-i18n="skills.h">Skills &amp; </span><span class="accent" data-i18n="skills.accent">Tech</span></h2>
     </div>
 
     <div class="sticker-wrap reveal-up">
@@ -732,13 +682,13 @@
   <!-- ─── Contact ────────────────────────────────────── -->
   <section id="contact">
     <div class="section-header reveal-up">
-      <p class="section-tag">// let's connect</p>
-      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+      <p class="section-tag" data-i18n="contact.tag">// let's connect</p>
+      <h2 class="section-title"><span data-i18n="contact.h">Get In</span> <span class="accent" data-i18n="contact.accent">Touch</span></h2>
     </div>
 
     <div class="contact-grid">
       <div class="contact-info reveal-left">
-        <p class="contact-lead">
+        <p class="contact-lead" data-i18n="contact.lead">
           I'm open to new opportunities and collaborations.
           If you have a project in mind or just want to connect, feel free to reach out.
         </p>
@@ -776,22 +726,22 @@
 
       <form class="contact-form reveal-right" id="contact-form">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <label for="name" data-i18n="contact.name.l">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" data-i18n-ph="contact.name.p" required />
           <div class="input-line"></div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          <label for="email" data-i18n="contact.email.l">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" data-i18n-ph="contact.email.p" required />
           <div class="input-line"></div>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          <label for="message" data-i18n="contact.msg.l">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" data-i18n-ph="contact.msg.p" required></textarea>
           <div class="input-line"></div>
         </div>
         <button type="submit" class="btn btn-primary form-submit">
-          <span class="btn-text">Send Message</span>
+          <span class="btn-text" data-i18n="contact.send">Send Message</span>
           <span class="btn-shine"></span>
         </button>
         <p class="form-note" id="form-status"></p>
@@ -810,6 +760,7 @@
     </div>
   </footer>
 
+<script src="i18n.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
