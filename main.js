@@ -724,12 +724,179 @@
       const pane = document.getElementById('tab-' + tab.dataset.tab);
       if (pane) {
         pane.classList.add('active');
-        // Re-trigger reveal animations on newly shown cards
         pane.querySelectorAll('.reveal-up').forEach(el => {
           if (!el.classList.contains('revealed')) el.classList.add('revealed');
         });
       }
     });
+  });
+}());
+
+/* ── Personal section — animated tab backgrounds ─────────── */
+(function initTabBackgrounds() {
+  const canvas = document.getElementById('personal-bg-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let raf = null;
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* ── Anime: falling sakura petals ── */
+  function buildAnime() {
+    const colors = ['#ff6baa','#c44dff','#ff9ef7','#bd44ff','#ff4fcb'];
+    const petals = Array.from({ length: 70 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      rx: Math.random() * 7 + 3,
+      ry: Math.random() * 4 + 2,
+      vx: (Math.random() - 0.5) * 0.7,
+      vy: Math.random() * 0.7 + 0.3,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.04,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: Math.random() * 0.4 + 0.1,
+    }));
+    return function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      petals.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+        if (p.y > canvas.height + 12) { p.y = -12; p.x = Math.random() * canvas.width; }
+        if (p.x < -12) p.x = canvas.width + 12;
+        if (p.x > canvas.width + 12) p.x = -12;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, p.rx, p.ry, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+    };
+  }
+
+  /* ── Drawing: drifting sketch lines ── */
+  function buildDrawing() {
+    const lines = Array.from({ length: 40 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      len: Math.random() * 100 + 30,
+      angle: Math.random() * Math.PI,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      va: (Math.random() - 0.5) * 0.006,
+      alpha: Math.random() * 0.07 + 0.02,
+    }));
+    return function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      lines.forEach(l => {
+        l.x += l.vx; l.y += l.vy; l.angle += l.va;
+        if (l.x < -120 || l.x > canvas.width  + 120) l.vx *= -1;
+        if (l.y < -120 || l.y > canvas.height + 120) l.vy *= -1;
+        const dx = Math.cos(l.angle) * l.len / 2;
+        const dy = Math.sin(l.angle) * l.len / 2;
+        ctx.beginPath();
+        ctx.moveTo(l.x - dx, l.y - dy);
+        ctx.lineTo(l.x + dx, l.y + dy);
+        ctx.strokeStyle = `rgba(255,255,255,${l.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      });
+    };
+  }
+
+  /* ── Reading: rising golden glyphs ── */
+  function buildReading() {
+    const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789αβγδεζθλπΣΩ∞∂∇';
+    const glyphs = Array.from({ length: 55 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      char: pool[Math.floor(Math.random() * pool.length)],
+      vy: -(Math.random() * 0.45 + 0.1),
+      alpha: Math.random() * 0.18 + 0.04,
+      size: Math.floor(Math.random() * 14 + 10),
+    }));
+    return function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      glyphs.forEach(g => {
+        g.y += g.vy;
+        if (g.y < -20) {
+          g.y = canvas.height + 20;
+          g.x = Math.random() * canvas.width;
+          g.char = pool[Math.floor(Math.random() * pool.length)];
+        }
+        ctx.globalAlpha = g.alpha;
+        ctx.fillStyle = '#ffc850';
+        ctx.font = `${g.size}px serif`;
+        ctx.fillText(g.char, g.x, g.y);
+      });
+      ctx.globalAlpha = 1;
+    };
+  }
+
+  /* ── Travels: constellation stars ── */
+  function buildTravels() {
+    const stars = Array.from({ length: 90 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.7 + 0.2,
+    }));
+    const MAX = 130;
+    return function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.x += s.vx; s.y += s.vy;
+        if (s.x < 0 || s.x > canvas.width)  s.vx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.vy *= -1;
+      });
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = stars[i].x - stars[j].x;
+          const dy = stars[i].y - stars[j].y;
+          const d  = Math.sqrt(dx * dx + dy * dy);
+          if (d < MAX) {
+            ctx.beginPath();
+            ctx.moveTo(stars[i].x, stars[i].y);
+            ctx.lineTo(stars[j].x, stars[j].y);
+            ctx.strokeStyle = `rgba(80,220,255,${0.14 * (1 - d / MAX)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(80,220,255,${s.alpha})`;
+        ctx.fill();
+      });
+    };
+  }
+
+  const builders = { anime: buildAnime, drawing: buildDrawing, reading: buildReading, travels: buildTravels };
+
+  function startAnim(name) {
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    const build = builders[name];
+    if (!build) return;
+    resize();
+    const draw = build();
+    function loop() { draw(); raf = requestAnimationFrame(loop); }
+    loop();
+  }
+
+  startAnim('anime');
+  document.querySelectorAll('.personal-tab').forEach(tab => {
+    tab.addEventListener('click', () => startAnim(tab.dataset.tab));
   });
 }());
 

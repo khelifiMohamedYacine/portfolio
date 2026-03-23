@@ -2174,6 +2174,18 @@ footer {
   line-height: 1.85;
 }
 
+/* ── Per-tab animated background ───────────────────────── */
+#personal { position: relative; }
+#personal-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.personal-tabs, .personal-pane { position: relative; z-index: 1; }
+
 /* ── Tab strip ──────────────────────────────────────────── */
 .personal-tabs {
   display: flex;
