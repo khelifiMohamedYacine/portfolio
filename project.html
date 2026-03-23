@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — Khelifi Mohamed Yacine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ─── Minimal Header ──────────────────────────────── -->
+  <header id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo">MYK<span class="logo-dot">.</span></a>
+      </div>
+      <div class="nav-right">
+        <a href="index.html#projects" class="nav-cta nav-cta-ghost">
+          &#x2190; Back to Portfolio
+        </a>
+        <a href="index.html#contact" class="nav-cta nav-cta-primary">
+          <span>Hire Me</span><span class="btn-shine"></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Project Detail ──────────────────────────────── -->
+  <main id="project-page">
+
+    <!-- Hero -->
+    <section class="pd-hero">
+      <div class="pd-hero-inner">
+        <div class="pd-hero-top">
+          <a href="index.html#projects" class="pd-back">&#x2190; All Projects</a>
+          <span class="pd-number" id="pd-number">01</span>
+        </div>
+        <div class="pd-category" id="pd-category-wrap">
+          <span class="card-tag" id="pd-tag">AI / ML</span>
+        </div>
+        <h1 class="pd-title" id="pd-title">Project Title</h1>
+        <p class="pd-tagline" id="pd-tagline">Short tagline goes here.</p>
+        <div class="pd-hero-links" id="pd-links">
+          <!-- injected by JS -->
+        </div>
+      </div>
+      <div class="grid-overlay"></div>
+    </section>
+
+    <!-- Content -->
+    <div class="pd-content">
+
+      <!-- Overview -->
+      <section class="pd-section">
+        <h2 class="pd-section-title"><span class="accent">Overview</span></h2>
+        <div class="pd-overview" id="pd-overview"><!-- injected --></div>
+      </section>
+
+      <!-- Tech + Features side by side -->
+      <section class="pd-section pd-two-col">
+        <div class="pd-block">
+          <h2 class="pd-section-title"><span class="accent">Tech Stack</span></h2>
+          <div class="pd-tech-list" id="pd-tech"><!-- injected --></div>
+        </div>
+        <div class="pd-block">
+          <h2 class="pd-section-title"><span class="accent">Key Features</span></h2>
+          <ul class="pd-feature-list" id="pd-features"><!-- injected --></ul>
+        </div>
+      </section>
+
+      <!-- What I Learned -->
+      <section class="pd-section">
+        <h2 class="pd-section-title"><span class="accent">What I Learned</span></h2>
+        <div class="pd-learnings-grid" id="pd-learnings"><!-- injected --></div>
+      </section>
+
+      <!-- Achievements -->
+      <section class="pd-section">
+        <h2 class="pd-section-title"><span class="accent">Results &amp; Achievements</span></h2>
+        <div class="pd-achievements" id="pd-achievements"><!-- injected --></div>
+      </section>
+
+    </div>
+
+    <!-- Prev / Next -->
+    <nav class="pd-nav-projects" id="pd-nav"><!-- injected --></nav>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">MYK<span class="logo-dot">.</span></span>
+      <p class="footer-copy">&copy; 2025 Khelifi Mohamed Yacine</p>
+      <div class="footer-line"></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+  /* ─── Project Data ───────────────────────────────────── */
+  const PROJECTS = [
+    {
+      id: 'brain-tumor',
+      number: '01',
+      title: 'Brain Tumor Detection',
+      category: 'AI / ML',
+      tagClass: 'ai-tag',
+      tagline: 'Deep learning CNN that classifies brain tumors from MRI scans with hyperparameter-tuned accuracy.',
+      github: 'https://github.com/khelifiMohamedYacine/Deep-Learning-Brain-Tumour-Detector',
+      overview: [
+        'Built a Convolutional Neural Network using TensorFlow and Keras to detect and classify brain tumors from MRI scan images. The model was trained on a real-world medical dataset containing thousands of labelled scans across multiple tumor categories.',
+        'A dedicated hyperparameter selection notebook was developed alongside the main model, systematically evaluating learning rates, batch sizes, dropout rates, and optimiser configurations to find the optimal combination — resulting in significantly improved validation accuracy.',
+        'This project sits at the intersection of deep learning and healthcare, demonstrating how AI can assist medical professionals in faster, more consistent diagnosis of life-threatening conditions.'
+      ],
+      tech: ['Python', 'TensorFlow', 'Keras', 'NumPy', 'Matplotlib', 'scikit-learn', 'Jupyter Notebook', 'PIL / ImageDataGenerator'],
+      features: [
+        'Multi-class MRI tumor classification (glioma, meningioma, pituitary, no-tumor)',
+        'Hyperparameter tuning notebook with systematic grid evaluation',
+        'Data augmentation pipeline (flip, rotation, zoom) to prevent overfitting',
+        'Training/validation loss and accuracy visualisation curves',
+        'Confusion matrix and per-class precision/recall reporting',
+        'Model checkpointing and early stopping callbacks'
+      ],
+      learnings: [
+        { title: 'CNN Architecture Design', body: 'Understood how to stack convolutional, pooling, and fully-connected layers to extract hierarchical features from images, and how depth and filter size affect performance.' },
+        { title: 'Hyperparameter Optimisation', body: 'Learned how to systematically evaluate learning rate, batch size, and dropout to avoid underfitting/overfitting — moving beyond trial-and-error to structured experimentation.' },
+        { title: 'Medical AI Ethics', body: 'Gained awareness of the responsibility involved when applying AI to healthcare — the importance of high recall over precision, and the risks of false negatives in cancer detection.' },
+        { title: 'Data Augmentation', body: 'Applied real-time augmentation to overcome limited training data, understanding that data quality and variety matter more than raw dataset size.' },
+        { title: 'TensorFlow / Keras API', body: 'Became proficient with the Keras Sequential and Functional APIs, callbacks, custom metrics, and model serialisation for deployment.' }
+      ],
+      achievements: [
+        'Achieved strong validation accuracy across 4 tumor classes on a real MRI dataset',
+        'Reduced overfitting by 30%+ through combined dropout and augmentation strategies',
+        'Produced a reusable hyperparameter evaluation framework applicable to future image classification tasks',
+        'Developed complete end-to-end ML pipeline from raw images to classified predictions'
+      ]
+    },
+    {
+      id: 'computer-vision',
+      number: '02',
+      title: 'Computer Vision Pipeline',
+      category: 'Computer Vision',
+      tagClass: 'ai-tag',
+      tagline: 'Five-challenge computer vision coursework covering segmentation, feature extraction, and object recognition.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'A comprehensive computer vision coursework tackling five distinct image analysis challenges using Python and OpenCV. Each question demanded a different algorithmic approach — from classical image processing to machine-learning-driven analysis.',
+        'The project covered edge detection, image segmentation, feature extraction with SIFT/HOG, object recognition, and spatial analysis. Multiple algorithms were implemented and benchmarked against each other, producing a detailed technical comparison report.',
+        'Working with large image datasets (stored in the data/ directory) and producing visual output for each pipeline stage deepened the understanding of how visual systems perceive and interpret the world.'
+      ],
+      tech: ['Python', 'OpenCV', 'scikit-image', 'NumPy', 'Matplotlib', 'Jupyter Notebook', 'PIL', 'SciPy'],
+      features: [
+        'Edge detection with Canny, Sobel, and Laplacian operators — comparative analysis',
+        'Image segmentation using K-means clustering and watershed algorithm',
+        'Feature extraction with SIFT keypoints and HOG descriptors',
+        'Object recognition pipeline with template matching',
+        'Spatial frequency analysis using Fourier transforms',
+        'Full visual output for each processing stage with side-by-side comparisons'
+      ],
+      learnings: [
+        { title: 'Classical vs. Deep CV', body: 'Understood when classical algorithms (Canny, SIFT) outperform deep learning — speed, interpretability, and low-data scenarios where neural networks struggle.' },
+        { title: 'Image Representation', body: 'Learned how images are represented as multi-dimensional arrays, how colour spaces (RGB, HSV, Grayscale) affect algorithm performance, and how pixel operations work at scale.' },
+        { title: 'Algorithm Benchmarking', body: 'Developed the discipline of systematic evaluation — running multiple algorithms on the same data and using quantitative metrics (IoU, precision) rather than just visual inspection.' },
+        { title: 'Frequency Domain Analysis', body: 'Explored how the Fourier transform reveals frequency content in images, enabling filtering operations invisible in the spatial domain.' },
+        { title: 'Feature Engineering', body: 'Understood that the choice of features (HOG vs SIFT vs raw pixels) can matter more than the choice of classifier — a key lesson for ML system design.' }
+      ],
+      achievements: [
+        'Completed all 5 vision challenges with detailed written analysis for each',
+        'Implemented and compared 10+ distinct algorithms across the pipeline',
+        'Produced clean, reproducible Jupyter notebooks with full visual outputs',
+        'Built reusable CV utility functions used across multiple questions'
+      ]
+    },
+    {
+      id: 'llm-microservices',
+      number: '03',
+      title: 'LLM Microservices Platform',
+      category: 'Enterprise / AI',
+      tagClass: 'systems-tag',
+      tagline: 'Three-tier microservices system with Mistral AI, regex guardrails, and an orchestrator API.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'Designed and built a production-style microservices architecture integrating a real large language model (Mistral AI) into a controlled, enterprise-grade pipeline. The system consists of three independently running Flask services that communicate over HTTP.',
+        'The LLM Service handles prompt routing to the Mistral API and returns AI-generated responses. The Guardrails Service defines regex-based content rules that sanitise and enforce safe outputs. The Auberge Orchestrator acts as the gateway — receiving user prompts, passing them through guardrails, and returning clean responses.',
+        'This project mirrors real-world enterprise AI deployment patterns: keeping the LLM behind a gateway, enforcing content policies, and building for fault tolerance with graceful fallbacks at every layer.'
+      ],
+      tech: ['Python', 'Flask', 'Mistral AI API', 'REST APIs', 'JSON', 'Regex', 'Microservices', 'HTTP', 'python-dotenv'],
+      features: [
+        'Three independently deployable Flask microservices on separate ports',
+        'Mistral AI (mistral-small) integration with configurable temperature and token limits',
+        'Regex-based guardrails that apply substitutions and content rules to AI output',
+        'Orchestrator (Auberge) that chains LLM + guardrails in a single API call',
+        'Graceful degradation: returns "I do not know" on any service failure',
+        'Environment variable management for API key security'
+      ],
+      learnings: [
+        { title: 'Microservices Architecture', body: 'Understood the separation of concerns principle at a system level — each service has one job, making the system testable, replaceable, and independently deployable.' },
+        { title: 'LLM API Integration', body: 'Learned how to interact with commercial LLM APIs — managing auth, rate limits, request formatting, and handling non-deterministic outputs in a production context.' },
+        { title: 'Content Guardrails Design', body: 'Explored the challenge of AI safety at the output layer — using regex patterns to enforce policies without modifying the underlying model.' },
+        { title: 'Fault-Tolerant Systems', body: 'Implemented try/except chains and timeout handling across all service boundaries, learning that distributed systems must assume failure at every hop.' },
+        { title: 'Enterprise API Design', body: 'Designed clean REST interfaces with proper status codes, JSON payloads, and clear error contracts — skills directly applicable to backend engineering roles.' }
+      ],
+      achievements: [
+        'Fully operational 3-service pipeline with Mistral AI running end-to-end',
+        'Guardrails system capable of applying multiple regex rules in sequence without breaking the pipeline',
+        'Zero hard crashes — all failure modes return structured JSON responses',
+        'Architecture documented and deployable as standalone processes on any machine'
+      ]
+    },
+    {
+      id: 'ai-goal-platform',
+      number: '04',
+      title: 'AI Goal Achievement Platform',
+      category: 'AI + Full-Stack',
+      tagClass: 'web-tag',
+      tagline: 'Full-stack coaching app with an AI chatbot, smart plan generator, and resource recommendation engine.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'A full-stack personal coaching web application where users set goals and receive AI-driven support to achieve them. The backend is built with Flask and exposes a rich REST API consumed by a JavaScript-heavy frontend.',
+        'At the heart of the application sits a conversational AI chatbot (GoalChatInterface) that understands goal context and responds with motivational and actionable guidance. A SmartPlanGenerator then breaks goals into structured week-by-week roadmaps. Two additional engines — YouTubeSearcher and ArticleSearcher — automatically surface relevant learning resources.',
+        'The frontend spans multiple pages (Goals, Goal Detail, Tips, Links, Videos, Account) all sharing a common base template and navigation component, giving the feel of a real SaaS product.'
+      ],
+      tech: ['Python', 'Flask', 'Flask-CORS', 'JavaScript', 'HTML5', 'CSS3', 'SQLite', 'YouTube Data API', 'REST API', 'asyncio', 'Jinja2'],
+      features: [
+        'AI chatbot interface with async initialisation and contextual conversation',
+        'Smart plan generator that creates personalised week-by-week roadmaps',
+        'Automated YouTube video recommendations matching goal keywords',
+        'Article search engine surfacing relevant reading materials',
+        'Multi-page SPA-style frontend (Goals, Detail, Tips, Videos, Links, Account)',
+        'RESTful API with CORS support for decoupled frontend consumption',
+        'SQLite-backed goal persistence with full CRUD operations'
+      ],
+      learnings: [
+        { title: 'Full-Stack Integration', body: 'Experienced the full loop of building a product — database schema, backend API, and interactive frontend — understanding how each layer creates constraints and opportunities for the others.' },
+        { title: 'Async Python', body: 'Used asyncio and event loops to initialise the AI chatbot without blocking the Flask server, learning how to bridge synchronous and asynchronous code.' },
+        { title: 'API Design for Frontend Consumption', body: 'Designed endpoints that returned exactly what the frontend needed — learning that good API design reduces frontend complexity and vice versa.' },
+        { title: 'AI-Powered UX', body: 'Understood how to integrate AI assistants into a product in a way that feels natural — handling latency, streaming responses, and fallback states gracefully.' },
+        { title: 'Modular Architecture', body: 'Structured the backend into discrete modules (chatbot, plan generator, searchers) that could be tested and swapped independently — a real-world software engineering practice.' }
+      ],
+      achievements: [
+        'End-to-end working application with 5+ distinct AI-powered features',
+        'Decoupled frontend/backend communicating entirely via REST API',
+        'Conversational chatbot with context awareness across a user session',
+        'Automatic resource discovery pipeline linking goals to YouTube content and articles'
+      ]
+    },
+    {
+      id: 'syntax-squad',
+      number: '05',
+      title: 'Syntax Squad — Campus Web App',
+      category: 'Team / Web App',
+      tagClass: 'web-tag',
+      tagline: '7-person agile Django app with games, quizzes, and a location explorer — live on PythonAnywhere.',
+      github: 'https://github.com/khelifiMohamedYacine/Group-project',
+      liveUrl: 'https://dm7935pa.eu.pythonanywhere.com/home/',
+      overview: [
+        'A fully-featured Django web application built by a 7-person agile team (Syntax Squad 2) over two sprint cycles. The project followed industry-standard software development practices: Kanban boards on Trello, sprint retrospectives, architecture documentation, and unit-tested Django apps.',
+        'The application features user authentication, an interactive jumping game, a Sokoban puzzle, a quiz module with score tracking, and a sustainability-themed locations explorer powered by NetworkX graph algorithms for pathfinding and connectivity analysis.',
+        'The project was deployed live on PythonAnywhere and is publicly accessible. It represents a real experience of team software development — merging code, resolving conflicts, reviewing pull requests, and meeting sprint deadlines as a team.'
+      ],
+      tech: ['Python', 'Django', 'NetworkX', 'Matplotlib', 'SQLite3', 'HTML5', 'CSS3', 'JavaScript', 'PythonAnywhere', 'Trello', 'Git / GitHub'],
+      features: [
+        'User registration, login, and session management with Django auth',
+        'Interactive browser-based jumping game',
+        'Sokoban puzzle game with level progression',
+        'Quiz module with dynamic question loading and score persistence',
+        'Locations explorer with NetworkX-powered graph pathfinding',
+        'Sustainability project section with educational content',
+        'Responsive UI with shared base template across all apps',
+        'Django unit tests across 4 separate app modules'
+      ],
+      learnings: [
+        { title: 'Agile Team Development', body: 'Experienced two full sprint cycles — planning, building, reviewing, and retrospecting as a 7-person team. Learned that communication and clear task ownership matter more than individual technical ability.' },
+        { title: 'Django App Architecture', body: 'Understood how Django\'s app-based modular architecture enables multiple developers to work in parallel without stepping on each other, using clear model/view/template boundaries.' },
+        { title: 'Graph Algorithms in Practice', body: 'Applied NetworkX to build real graph-based features (pathfinding, connectivity) — bridging academic theory with practical software integration.' },
+        { title: 'Collaborative Git Workflow', body: 'Managed branches, pull requests, code reviews, and merge conflicts in a real multi-developer environment — essential experience for any professional software team.' },
+        { title: 'Testing and Documentation', body: 'Wrote Django unit tests, architecture overviews, and user documentation — learning that a shipped feature without tests and docs is only half-done.' }
+      ],
+      achievements: [
+        'Live deployed application with active URL on PythonAnywhere',
+        'Successfully delivered 2 full sprint cycles on schedule with a 7-person team',
+        'Graph algorithm integration enabling real pathfinding features in the locations module',
+        '1 GitHub star — community recognition of the project\'s quality',
+        'Comprehensive documentation: architecture overview, test docs, deployment guide, and user manual'
+      ]
+    },
+    {
+      id: 'sentiment-analysis',
+      number: '06',
+      title: 'Cross-Domain Sentiment Analysis',
+      category: 'NLP / Data Science',
+      tagClass: 'nlp-tag',
+      tagline: 'Comparing VADER vs ML classifiers across 15,000 reviews from movies, restaurants, and products.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'A research-grade NLP project investigating whether textual features can reliably predict sentiment in online reviews — and whether those patterns transfer across domains. Three distinct datasets (movies, restaurants, products) were sampled to 5,000 reviews each via the HuggingFace datasets library.',
+        'The study compared a lexicon-based approach (VADER) against two machine learning classifiers (Logistic Regression and Linear SVM with TF-IDF features), evaluating each on within-domain accuracy and cross-domain generalisation.',
+        'The findings were analysed using cosine similarity between domain TF-IDF spaces, part-of-speech tagging to identify domain-specific vocabulary, and coefficient analysis to interpret what words each classifier learned as most discriminative.'
+      ],
+      tech: ['Python', 'NLTK', 'scikit-learn', 'HuggingFace Datasets', 'TF-IDF', 'VADER', 'Logistic Regression', 'Linear SVM', 'Matplotlib', 'Seaborn', 'Jupyter Notebook', 'Pandas', 'NumPy'],
+      features: [
+        '15,000 balanced reviews loaded from HuggingFace (5,000 per domain)',
+        'Full text preprocessing pipeline: tokenisation, stopword removal, lemmatisation',
+        'TF-IDF vectorisation with bigram support and vocabulary size tuning',
+        'VADER sentiment analysis with compound score classification',
+        'Logistic Regression and Linear SVM classifiers with cross-validation',
+        'Cross-domain evaluation: train on movies, test on restaurants/products',
+        'Cosine similarity analysis between domain vector spaces',
+        'Model interpretability: top positive/negative feature coefficients per domain'
+      ],
+      learnings: [
+        { title: 'NLP Pipeline Design', body: 'Built a complete text preprocessing and feature engineering pipeline from scratch — learning that data cleaning decisions (stopwords, stemming vs lemmatisation) significantly impact downstream accuracy.' },
+        { title: 'Lexicon vs. ML Trade-offs', body: 'Discovered that VADER, while requiring no training data, consistently underperforms supervised classifiers on domain-specific vocabulary — highlighting why domain adaptation matters.' },
+        { title: 'Cross-Domain Generalisation', body: 'Observed how models trained on movie reviews fail on restaurant reviews due to vocabulary drift — a core challenge in NLP that informs transfer learning and domain adaptation research.' },
+        { title: 'Interpretable ML', body: 'Used coefficient analysis to understand what the classifiers actually learned — a critical skill for explaining AI decisions to non-technical stakeholders.' },
+        { title: 'Research Methodology', body: 'Structured the project as a research question with hypothesis, methodology, results, and conclusions — experience directly applicable to academic and industry research roles.' }
+      ],
+      achievements: [
+        'Processed and analysed 15,000 real-world reviews across 3 distinct domains',
+        'SVM classifier achieved highest within-domain accuracy across all three datasets',
+        'Quantified cross-domain performance degradation with cosine similarity metrics',
+        'Produced full research report with visualisations, analysis, and conclusions',
+        'Reusable NLP pipeline adaptable to any binary sentiment classification task'
+      ]
+    },
+    {
+      id: 'logic-programming',
+      number: '07',
+      title: 'Logic &amp; Functional Programming',
+      category: 'Languages',
+      tagClass: 'systems-tag',
+      tagline: 'Declarative solutions in Prolog and Haskell covering constraint logic, calendar reasoning, and type-safe algorithms.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'A coursework project exploring two fundamentally different declarative programming paradigms: logic programming in Prolog and functional programming in Haskell. Both are languages that force a completely different mental model compared to imperative Python or Java.',
+        'The Prolog component tackled calendar reasoning — finding Mondays, counting prime-day Saturdays, and building a constraint-based month generator (generator4/selector4) that satisfies multiple simultaneous logical conditions. The Haskell component implemented type-safe data transformations and recursive algorithms using Haskell\'s strong static type system.',
+        'Completing these in a university exam-style environment without the ability to run code freely sharpened the ability to reason about program behaviour purely through logic, types, and mathematical properties.'
+      ],
+      tech: ['Prolog', 'SWI-Prolog', 'Haskell', 'GHC', 'Declarative Programming', 'Constraint Logic', 'Lambda Calculus', 'Type Theory'],
+      features: [
+        'Prolog: mondays/3 predicate for finding all Mondays in a month',
+        'Prolog: is_prime/1 and count_prime_days/2 for prime number reasoning',
+        'Prolog: saturdays/3 with a special-case fact for edge-case handling',
+        'Prolog: generator4 and selector4 for two-month constraint generation',
+        'Haskell: type-safe recursive algorithms with pattern matching',
+        'Haskell: higher-order functions (map, filter, foldr) implementations',
+        'Pure declarative style — no mutable state or loops anywhere'
+      ],
+      learnings: [
+        { title: 'Logic Programming Paradigm', body: 'Understood how Prolog programs describe what is true rather than what to do — a fundamental shift that trains more rigorous logical thinking applicable to formal verification and AI planning.' },
+        { title: 'Constraint Satisfaction', body: 'Learned how to express complex multi-condition problems as Prolog constraints, letting the unification engine search for solutions — a powerful technique used in scheduling and planning systems.' },
+        { title: 'Functional Purity', body: 'Experienced what it means to write truly stateless, side-effect-free code in Haskell — understanding referential transparency and why it makes programs easier to reason about and test.' },
+        { title: 'Type Systems', body: 'Haskell\'s strong static type system made type errors a compile-time guarantee rather than a runtime surprise — a perspective that makes every other language\'s type system feel underspecified.' },
+        { title: 'Edge Case Reasoning', body: 'Prolog\'s backtracking exposed the importance of covering all logical cases — including special facts that override general rules — a lesson in defensive, complete specification.' }
+      ],
+      achievements: [
+        'All Prolog predicates pass the provided test cases including the edge-case special fact',
+        'Haskell implementations are fully type-correct with no runtime errors',
+        'Demonstrated working knowledge of two languages rarely taught outside academia',
+        'Code is clean, readable, and commented in a way that reflects deep understanding of each paradigm'
+      ]
+    },
+    {
+      id: 'battleship',
+      number: '08',
+      title: 'Battleship — AI Opponent Game',
+      category: 'Game Dev',
+      tagClass: 'systems-tag',
+      tagline: 'Python Battleship with CLI and Flask web UI, an AI opponent, and 3 placement algorithms.',
+      github: 'https://github.com/khelifiMohamedYacine/Battleship-Game',
+      overview: [
+        'A fully-featured implementation of the classic Battleship strategy game built entirely in Python, offering two distinct interfaces: a command-line mode for quick play and a browser-based web interface built with Flask for an interactive graphical experience.',
+        'The game features a full AI opponent that generates intelligent attack coordinates against the player\'s board. Three distinct ship placement algorithms were implemented — simple (sequential rows), random (random positions/orientations), and custom (JSON-defined configurations) — giving players full control over their setup.',
+        'The Flask web application exposes a clean REST API with three routes (/placement, /, /attack) that manage game state, accept player attacks, and trigger AI responses — demonstrating how game logic can be cleanly separated from the interface layer.'
+      ],
+      tech: ['Python', 'Flask', 'HTML5', 'CSS3', 'JavaScript', 'REST API', 'JSON', 'MIT License'],
+      features: [
+        '10×10 grid game board with 5 ship types (Carrier, Battleship, Cruiser, Submarine, Destroyer)',
+        'AI opponent with intelligent attack generation',
+        'Three placement algorithms: simple, random, and custom JSON',
+        'CLI single-player and CLI multiplayer (vs AI) modes',
+        'Flask web interface with real-time attack response',
+        'Ship placement UI at /placement with green submit button',
+        'Game state persistence across HTTP requests',
+        'Hit/miss/sunk detection with win condition checking'
+      ],
+      learnings: [
+        { title: 'Game State Architecture', body: 'Learned how to represent complex game state (boards, ship positions, hit tracking) as clean data structures that can be serialised, updated, and queried efficiently across multiple game modes.' },
+        { title: 'REST API for Games', body: 'Understood how to expose turn-based game logic as a stateless HTTP API — where each request contains enough context to process a move and return the updated state.' },
+        { title: 'Algorithm Design', body: 'Implementing three placement algorithms reinforced how the same problem (placing ships) can be solved in fundamentally different ways — each with different trade-offs in predictability, fairness, and complexity.' },
+        { title: 'Separation of Concerns', body: 'The project\'s three-module structure (components, game_engine, mp_game_engine) showed how clean module boundaries make code easier to test, extend, and reason about.' },
+        { title: 'Full-Stack Python', body: 'Experienced Python as both the game engine and the web server — understanding that Flask\'s lightweight nature makes it ideal for serving game state without the overhead of a heavy framework.' }
+      ],
+      achievements: [
+        'Fully functional game running across both CLI and web interfaces from a single codebase',
+        'AI opponent providing a genuine challenge for human players',
+        'Published open-source on GitHub under MIT licence',
+        'Clean three-module architecture easily extensible to multiplayer or more complex AI'
+      ]
+    },
+    {
+      id: 'web-dev-php',
+      number: '09',
+      title: 'Responsive Multi-Page PHP Website',
+      category: 'Web Dev',
+      tagClass: 'web-tag',
+      tagline: 'PHP web platform with user auth, a memory pairs game, live leaderboard, and glass-effect responsive UI.',
+      github: 'https://github.com/khelifiMohamedYacine',
+      overview: [
+        'A full multi-page web platform built with PHP, HTML, CSS, and JavaScript — deployed on a remote Azure VM accessible via SSH tunnelling. The project covered the full cycle of web development: server-side scripting, database-backed user accounts, session management, and dynamic content rendering.',
+        'The centrepiece feature is an interactive memory card pairs game where authenticated users flip cards to find matching emoji pairs. Scores are tracked per session and displayed on a real-time leaderboard that ranks all registered players. A responsive glass-effect design ensures the site works across desktop, tablet, and mobile.',
+        'This project built foundational web development skills: PHP form processing, MySQL CRUD operations, session handling, input sanitisation, and building responsive layouts from scratch without any CSS framework.'
+      ],
+      tech: ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'MySQL', 'Azure VM', 'SSH Tunnelling', 'Apache'],
+      features: [
+        'User registration, login, and logout with PHP session management',
+        'Interactive memory card pairs game with emoji assets',
+        'Real-time leaderboard showing ranked scores for all users',
+        'Responsive layout with glass-morphism effects (desktop/tablet/mobile)',
+        'Fixed navigation with hover effects',
+        'Contact form with input validation',
+        'Secure password handling and server-side form sanitisation',
+        'Deployed on Azure VM accessible via SSH port forwarding'
+      ],
+      learnings: [
+        { title: 'Server-Side Scripting', body: 'Built real server-side logic in PHP — form processing, session management, database queries — understanding the request-response cycle at a fundamental level.' },
+        { title: 'Database-Driven Web Apps', body: 'Used MySQL to persist user accounts and game scores, writing raw SQL queries for CRUD operations and learning how databases power every real-world web application.' },
+        { title: 'Responsive CSS from Scratch', body: 'Built a fully responsive layout without any CSS framework — learning media queries, flexbox, and CSS custom properties to create layouts that genuinely work on all screen sizes.' },
+        { title: 'Cloud Deployment', body: 'Configured and deployed a web application on an Azure VM — setting up Apache, managing SSH keys, and forwarding ports — real-world DevOps experience.' },
+        { title: 'Client-Server Game Logic', body: 'Built the pairs game with JavaScript on the client and PHP validating game completion on the server — understanding where to put logic in a client-server architecture.' }
+      ],
+      achievements: [
+        'Fully deployed web application on Azure cloud infrastructure',
+        'Working authentication system with secure session management',
+        'Interactive game with real-time leaderboard across all registered users',
+        'Responsive design that renders correctly on all tested screen sizes'
+      ]
+    },
+    {
+      id: 'cycling-race',
+      number: '10',
+      title: 'Cycling Race Management System',
+      category: 'OOP / Java',
+      tagClass: 'systems-tag',
+      tagline: 'Java backend managing teams, riders, and multi-stage races with full OOP principles and JUnit testing.',
+      github: 'https://github.com/khelifiMohamedYacine/Cycling-Race-Management-System',
+      overview: [
+        'A backend system for managing professional cycling races built entirely in Java 17 as an ECM1410 (Object-Oriented Programming) coursework at the University of Exeter. The system manages the full lifecycle of a race: registering teams, adding riders, scheduling stages, recording results, and computing standings.',
+        'The project is a pure demonstration of the four pillars of OOP — encapsulation through private fields and controlled access, inheritance through shared race entity classes, polymorphism through overridden behaviour for different cyclist categories, and abstraction through a simplified management interface that hides internal complexity.',
+        'Data persistence is achieved through Java file I/O, and the system exposes a menu-driven console interface allowing users to interact with all management functions. The codebase was tested with JUnit and built using either a Makefile or Gradle.'
+      ],
+      tech: ['Java 17', 'OOP Design Patterns', 'JUnit', 'File I/O', 'Gradle / Makefile', 'Java Collections API'],
+      features: [
+        'Cyclist registration with biographical and performance profile data',
+        'Team management with rider roster and affiliation tracking',
+        'Multi-stage race scheduling with outcome recording',
+        'Automatic standings computation and race statistics generation',
+        'File I/O persistence — save and reload system state between sessions',
+        'Menu-driven console interface for all management operations',
+        'JUnit test suite covering core model behaviour',
+        'Full OOP: encapsulation, inheritance, polymorphism, and abstraction'
+      ],
+      learnings: [
+        { title: 'Object-Oriented Design', body: 'Built a system from scratch using proper OOP principles — learning that good class design (clear responsibilities, minimal coupling) makes large codebases maintainable.' },
+        { title: 'Java Type System', body: 'Leveraged Java\'s strong static typing and interface system to enforce contracts between components — understanding how type safety prevents entire categories of runtime bugs.' },
+        { title: 'File Persistence', body: 'Implemented save/load functionality using Java serialisation and file I/O — learning how applications maintain state between sessions without a database.' },
+        { title: 'Unit Testing with JUnit', body: 'Wrote tests before (or alongside) code, learning that tests are not optional extras — they define what "correct" means and catch regressions immediately.' },
+        { title: 'Build Systems', body: 'Configured Gradle as a build tool — understanding how build systems manage dependencies, compilation, and test execution in professional Java projects.' }
+      ],
+      achievements: [
+        'Complete cycling race management system handling the full race lifecycle',
+        'Clean OOP architecture with all four principles demonstrably applied',
+        'JUnit test suite providing regression safety for core model classes',
+        'Data persistence enabling multi-session use without data loss',
+        'Academic declaration: zero GenAI tool usage — entirely original work'
+      ]
+    },
+    {
+      id: 'systems-c',
+      number: '11',
+      title: 'Systems Programming in C',
+      category: 'Systems / C',
+      tagClass: 'systems-tag',
+      tagline: 'Low-level C programs covering memory management, pointers, file I/O, data structures, and algorithms.',
+      github: 'https://github.com/khelifiMohamedYacine/Systems-Programming-in-C',
+      overview: [
+        'A collection of C programs demonstrating core systems programming concepts — the foundation of how computers actually work beneath every high-level language and framework. Working directly with memory addresses, pointers, and manual allocation develops an instinct for performance and correctness that no Python or JavaScript project can provide.',
+        'The projects include a word-length histogram program, implementations of classic data structures (linked lists, stacks, trees), file I/O programs for reading and writing structured data, and algorithm implementations demonstrating time complexity awareness.',
+        'Writing C forces an understanding of what happens when a function is called, how arrays relate to pointers, what a segmentation fault actually means, and why buffer overflows exist — knowledge that makes a developer significantly more effective in any language.'
+      ],
+      tech: ['C', 'GCC', 'Make', 'Valgrind', 'GDB', 'Linux / Unix', 'Standard C Library'],
+      features: [
+        'Word-length histogram with dynamic character frequency analysis',
+        'Manual memory management with malloc/free and leak detection via Valgrind',
+        'Pointer arithmetic and multi-level pointer operations',
+        'Linked list, stack, and binary tree implementations from scratch',
+        'File I/O programs for reading, writing, and parsing structured text files',
+        'String manipulation without standard library shortcuts',
+        'Algorithm implementations with explicit time/space complexity analysis',
+        'Makefile-driven build system'
+      ],
+      learnings: [
+        { title: 'Memory Management', body: 'Manually allocating and freeing heap memory — and hunting down leaks with Valgrind — built an intuition for how memory works that transforms how you write in any language.' },
+        { title: 'Pointers and Addresses', body: 'Understood that a variable is just a named memory address, and a pointer is just a variable holding another address — a mental model that demystifies references, objects, and pass-by-reference in every other language.' },
+        { title: 'Data Structures from Scratch', body: 'Implementing linked lists and trees without built-in library support showed exactly what those abstract structures are doing under the hood — and why cache performance matters for choice between them.' },
+        { title: 'Debugging Low-Level Code', body: 'Using GDB to step through segmentation faults and Valgrind to trace memory errors built debugging skills that transfer to debugging production systems, embedded code, and performance-critical paths.' },
+        { title: 'Systems Thinking', body: 'C\'s proximity to hardware makes visible what higher-level languages hide: function call stacks, byte alignment, null termination, and the cost of every operation — essential for writing efficient software.' }
+      ],
+      achievements: [
+        'All programs compile cleanly with zero Valgrind memory errors or leaks',
+        'Word-length histogram handles arbitrary input sizes with dynamic allocation',
+        'Data structures pass correctness tests for insert, delete, and traversal operations',
+        'Demonstrated understanding of pointer arithmetic, arrays, and C string handling'
+      ]
+    },
+    {
+      id: 'java-card-game',
+      number: '12',
+      title: 'Java Multi-Threaded Card Game',
+      category: 'Concurrency / Java',
+      tagClass: 'systems-tag',
+      tagline: 'Thread-safe concurrent card game with real-time multi-player interaction and synchronised deck management.',
+      github: 'https://github.com/khelifiMohamedYacine/Java-Multi-threaded-Card-Game',
+      overview: [
+        'A concurrent card game implemented in Java where multiple players run as independent threads, competing for cards from shared decks in real time. The project directly applies Java\'s concurrency model — threads, synchronisation, and thread-safe data structures — to build a game that would be impossible to implement correctly without understanding concurrent programming.',
+        'The core challenge is the classic concurrency problem: multiple threads competing to read from and write to shared state (the card decks) without causing race conditions, deadlocks, or inconsistent game states. Java\'s synchronized blocks, wait/notify mechanism, and atomic operations were used to ensure correct concurrent gameplay.',
+        'The game features real-time multi-user interaction where each player thread makes decisions based on its current hand and the state of the shared deck, logging its actions and the final game outcome when a winning condition is met.'
+      ],
+      tech: ['Java', 'Java Concurrency API', 'Multithreading', 'synchronized', 'Thread / Runnable', 'JUnit', 'File I/O', 'Gradle'],
+      features: [
+        'Multiple player threads running concurrently with real-time card exchange',
+        'Thread-safe deck management with synchronized access patterns',
+        'Configurable number of players via command-line argument',
+        'Deadlock prevention through careful lock ordering and design',
+        'Real-time game logging — each player writes its own action log file',
+        'Win detection that correctly terminates all threads when a player wins',
+        'JUnit test suite covering thread-safety and game logic correctness',
+        'Configurable card input file for different game scenarios'
+      ],
+      learnings: [
+        { title: 'Concurrent Programming', body: 'Understood that concurrency bugs (race conditions, deadlocks, liveness issues) are fundamentally different from sequential bugs — they are non-deterministic, timing-dependent, and require architectural solutions, not just code fixes.' },
+        { title: 'Java Synchronisation', body: 'Learned how to use synchronized blocks, intrinsic locks, and wait/notify to coordinate thread behaviour — understanding the difference between mutual exclusion (safety) and signalling (liveness).' },
+        { title: 'Deadlock Prevention', body: 'Analysed the project for potential deadlock scenarios (circular lock dependencies) and applied consistent lock ordering to eliminate them — a skill critical for any distributed or concurrent system.' },
+        { title: 'Thread Lifecycle Management', body: 'Managed thread creation, execution, and graceful termination when a win condition is reached — understanding that stopping threads correctly is as important as starting them.' },
+        { title: 'Testing Concurrent Code', body: 'Wrote JUnit tests for a multithreaded system — learning that concurrent code requires stress testing with many threads and iterations to expose timing-dependent bugs.' }
+      ],
+      achievements: [
+        'Fully functional concurrent card game with zero deadlocks or race conditions',
+        'Correct game termination — all threads stop cleanly when a winner is declared',
+        'Each player produces a complete action log file for post-game review',
+        'JUnit tests pass reliably across multiple concurrent executions',
+        'Architecture scales to any number of players without code changes'
+      ]
+    }
+  ];
+
+  /* ─── Render Logic ───────────────────────────────────── */
+  const id = new URLSearchParams(window.location.search).get('id');
+  const idx = PROJECTS.findIndex(p => p.id === id);
+  const project = PROJECTS[idx];
+
+  if (!project) {
+    document.title = 'Project Not Found — Yacine';
+    document.getElementById('project-page').innerHTML =
+      '<div class="pd-not-found"><h1>Project not found.</h1><p>The project you\'re looking for doesn\'t exist.</p><a href="index.html#projects">&#x2190; Back to all projects</a></div>';
+  } else {
+    document.title = `${project.title} — Khelifi Mohamed Yacine`;
+
+    // Hero
+    document.getElementById('pd-number').textContent = project.number;
+    document.getElementById('pd-title').innerHTML = project.title;
+    document.getElementById('pd-tagline').textContent = project.tagline;
+    const tagEl = document.getElementById('pd-tag');
+    tagEl.textContent = project.category;
+    tagEl.className = `card-tag ${project.tagClass}`;
+
+    // Links
+    const linksWrap = document.getElementById('pd-links');
+    let linksHTML = `<a href="${project.github}" target="_blank" rel="noopener" class="btn btn-primary">GitHub <span class="btn-shine"></span></a>`;
+    if (project.liveUrl) linksHTML += `<a href="${project.liveUrl}" target="_blank" rel="noopener" class="btn btn-ghost">Live Demo →</a>`;
+    linksWrap.innerHTML = linksHTML;
+
+    // Overview
+    document.getElementById('pd-overview').innerHTML = project.overview.map(p => `<p>${p}</p>`).join('');
+
+    // Tech
+    document.getElementById('pd-tech').innerHTML = project.tech.map(t => `<span class="tech-tag pd-tech-tag">${t}</span>`).join('');
+
+    // Features
+    document.getElementById('pd-features').innerHTML = project.features.map(f => `<li><span class="pd-feat-check">&#x2713;</span>${f}</li>`).join('');
+
+    // Learnings
+    document.getElementById('pd-learnings').innerHTML = project.learnings.map(l =>
+      `<div class="pd-learning-card">
+        <div class="pd-learning-num"></div>
+        <h4>${l.title}</h4>
+        <p>${l.body}</p>
+      </div>`
+    ).join('');
+
+    // Achievements
+    document.getElementById('pd-achievements').innerHTML = project.achievements.map(a =>
+      `<div class="pd-achievement"><span class="pd-ach-icon">&#x2605;</span><span>${a}</span></div>`
+    ).join('');
+
+    // Prev / Next
+    const prev = PROJECTS[idx - 1];
+    const next = PROJECTS[idx + 1];
+    let navHTML = '<div class="pd-nav-inner">';
+    if (prev) navHTML += `<a href="project.html?id=${prev.id}" class="pd-nav-btn pd-nav-prev"><span class="pd-nav-dir">&#x2190; Previous</span><span class="pd-nav-name">${prev.title}</span></a>`;
+    else navHTML += '<div></div>';
+    navHTML += `<a href="index.html#projects" class="pd-nav-home">All Projects</a>`;
+    if (next) navHTML += `<a href="project.html?id=${next.id}" class="pd-nav-btn pd-nav-next"><span class="pd-nav-dir">Next &#x2192;</span><span class="pd-nav-name">${next.title}</span></a>`;
+    else navHTML += '<div></div>';
+    navHTML += '</div>';
+    document.getElementById('pd-nav').innerHTML = navHTML;
+  }
+  </script>
+</body>
+</html>
