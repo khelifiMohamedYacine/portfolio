@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Beyond Code — Khelifi Mohamed Yacine</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Make the whole page one continuous background */
+    body { background: #000; }
+    #personal-hero, #personal, section { background: transparent !important; }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-grid-overlay"></div>
+
+  <!-- ─── Navigation ─────────────────────────────────── -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="index.html" class="nav-logo">MYK<span class="logo-dot">.</span></a>
+        <nav class="nav-desktop" aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="index.html#hero"    class="nav-link">Home</a></li>
+            <li><a href="index.html#about"   class="nav-link">About</a></li>
+            <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+            <li><a href="index.html#skills"  class="nav-link">Skills</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" class="nav-cta nav-cta-ghost">&larr; Portfolio</a>
+        <a href="index.html#contact" class="nav-cta nav-cta-primary">
+          <span>Hire Me</span>
+          <span class="btn-shine"></span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="nav-toggle-icon" viewBox="0 0 32 32" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path class="nav-toggle-path1"
+                  d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"/>
+            <path d="M7 16 27 16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="index.html#hero"     class="mobile-nav-link">Home</a></li>
+          <li><a href="index.html#about"    class="mobile-nav-link">About</a></li>
+          <li><a href="index.html#projects" class="mobile-nav-link">Projects</a></li>
+          <li><a href="index.html#skills"   class="mobile-nav-link">Skills</a></li>
+          <li><a href="index.html#contact"  class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+          <a href="index.html" class="nav-cta nav-cta-ghost" style="width:100%;justify-content:center;">&larr; Portfolio</a>
+          <a href="index.html#contact" class="nav-cta nav-cta-primary" style="width:100%;justify-content:center;">Hire Me</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Page Hero ───────────────────────────────────── -->
+  <section id="personal-hero" style="padding-top:140px;padding-bottom:60px;text-align:center;">
+    <div class="section-header reveal-up" style="margin-bottom:0">
+      <p class="section-tag">// beyond the code</p>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,6vw,4rem)">Life Beyond <span class="accent">Code</span></h1>
+    </div>
+    <p class="personal-lead reveal-up">
+      Software is my craft, but curiosity is my nature. When I step away from the terminal,
+      you'll find me deep in an anime arc, filling sketchbooks with character art, chasing big ideas in books,
+      or writing to understand the world a little better.
+    </p>
+  </section>
+
+  <!-- ─── Personal Section ───────────────────────────── -->
+  <section id="personal" style="padding-top:0">
+
+    <!-- Tabs -->
+    <div class="personal-tabs reveal-up">
+      <button class="personal-tab active" data-tab="anime">&#x1F3CC; Anime</button>
+      <button class="personal-tab" data-tab="drawing">&#x1F3A8; Drawing</button>
+      <button class="personal-tab" data-tab="reading">&#x1F4DA; Reading</button>
+      <button class="personal-tab" data-tab="travels">&#x1F30D; Travels</button>
+    </div>
+
+    <!-- ── ANIME TAB ──────────────────────────────────── -->
+    <div class="personal-pane active" id="tab-anime">
+
+      <div class="g4-header">
+        <div class="g4-header-left">
+          <h2 class="g4-title">Anime</h2>
+          <p class="g4-desc">A few series that left a permanent mark — stories I'll carry for life.</p>
+        </div>
+        <div class="g4-nav-btns">
+          <button class="g4-btn" id="anime-prev" aria-label="Previous slide" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="g4-btn" id="anime-next" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="g4-track-wrap">
+        <div class="g4-track" id="anime-track">
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/35120" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/devilman%20crybaby.gif" alt="Devilman Crybaby">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Devilman Crybaby</div>
+                <div class="g4-card-text">Masaaki Yuasa's adaptation is brutal, surreal, and heartbreaking. A meditation on love and humanity at the end of the world. It stays with you.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/34572" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/Black%20clover.gif" alt="Black Clover">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Black Clover</div>
+                <div class="g4-card-text">Asta's relentless refusal to give up despite having no magic is one of the most motivating arcs in shonen. Pure heart over raw talent — every time.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/40748" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/jujutsu%20kizan.gif" alt="Jujutsu Kaisen">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Jujutsu Kaisen</div>
+                <div class="g4-card-text">Raw cursed energy and brutal fights wrapped around genuine character depth. Gojo Satoru is one of the most iconic characters modern anime has produced.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/31964" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/my%20hero%20academia.gif" alt="My Hero Academia">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">My Hero Academia</div>
+                <div class="g4-card-text">Deku's journey from quirkless kid to the greatest hero redefined what a shonen protagonist can be. All Might's debut still gives me chills.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/42310" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/cyberpunk%20edgrunners.gif" alt="Cyberpunk: Edgerunners">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Cyberpunk: Edgerunners</div>
+                <div class="g4-card-text">Studio Trigger at its absolute best. 10 episodes that hit harder than most 50-episode series. Lucy deserved the moon.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/38000" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/demon%20slayar.gif" alt="Demon Slayer">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Demon Slayer</div>
+                <div class="g4-card-text">Ufotable set a new benchmark for animation quality. Tanjiro's kindness even toward demons makes this more than just a battle series.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/21" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/one-piece.gif" alt="One Piece">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">One Piece</div>
+                <div class="g4-card-text">The greatest adventure ever told. Oda built a world so rich and alive that every arc feels like a different genre. The Straw Hats are family.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/20" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/naruto.gif" alt="Naruto">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Naruto</div>
+                <div class="g4-card-text">The anime that started it all for me. Pain's arc and Naruto vs. Sasuke are childhood memories I'll never shake. Believe it.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/1" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/cowboy%20bepop.gif" alt="Cowboy Bebop">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Cowboy Bebop</div>
+                <div class="g4-card-text">Jazz, existentialism, and bounty hunters in space. Spike Spiegel is the coolest character ever drawn. See you space cowboy.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/16498" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/attack%20on%20titan.gif" alt="Attack on Titan">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Attack on Titan</div>
+                <div class="g4-card-text">The narrative complexity of the final arc is unmatched in anime. Every twist recontextualises everything — a true masterpiece of storytelling.</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="g4-item">
+            <a href="https://myanimelist.net/anime/889" target="_blank" rel="noopener" class="g4-card">
+              <img src="pics/anime/black%20lagoon.gif" alt="Black Lagoon">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Black Lagoon</div>
+                <div class="g4-card-text">Gritty, sharp, and unapologetically adult. Revy is one of anime's most complex female characters. A rare series that never glamorises its violence.</div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="g4-dots" id="anime-dots">
+        <button class="g4-dot active" aria-label="Go to slide 1"></button>
+        <button class="g4-dot" aria-label="Go to slide 2"></button>
+        <button class="g4-dot" aria-label="Go to slide 3"></button>
+        <button class="g4-dot" aria-label="Go to slide 4"></button>
+        <button class="g4-dot" aria-label="Go to slide 5"></button>
+        <button class="g4-dot" aria-label="Go to slide 6"></button>
+        <button class="g4-dot" aria-label="Go to slide 7"></button>
+        <button class="g4-dot" aria-label="Go to slide 8"></button>
+        <button class="g4-dot" aria-label="Go to slide 9"></button>
+        <button class="g4-dot" aria-label="Go to slide 10"></button>
+        <button class="g4-dot" aria-label="Go to slide 11"></button>
+      </div>
+
+    </div><!-- /#tab-anime -->
+
+    <!-- ── DRAWING TAB ─────────────────────────────────── -->
+    <div class="personal-pane" id="tab-drawing">
+
+      <div class="g4-header">
+        <div class="g4-header-left">
+          <h2 class="g4-title">Drawing</h2>
+          <p class="g4-desc">Character art, manga-style panels, and creatures from the worlds I love.</p>
+        </div>
+      </div>
+
+      <div class="bento-grid">
+
+        <div class="bento-item" data-src="pics/drawings/drawing%205.jpeg">
+          <img src="pics/drawings/drawing%205.jpeg" alt="Drawing 5">
+          <div class="bento-overlay"><span>Drawing 5</span></div>
+        </div>
+
+        <div class="bento-item" data-src="pics/drawings/drawing%202.jpeg">
+          <img src="pics/drawings/drawing%202.jpeg" alt="Drawing 2">
+          <div class="bento-overlay"><span>Drawing 2</span></div>
+        </div>
+
+      </div>
+
+      <div class="bento-extra">
+        <div class="bento-item bento-contain" data-src="pics/drawings/drawing%203.jpeg">
+          <img src="pics/drawings/drawing%203.jpeg" alt="Drawing 3">
+          <div class="bento-overlay"><span>Drawing 3</span></div>
+        </div>
+        <div class="bento-item bento-contain" data-src="pics/drawings/drawing%201.jpeg">
+          <img src="pics/drawings/drawing%201.jpeg" alt="Drawing 1">
+          <div class="bento-overlay"><span>Drawing 1</span></div>
+        </div>
+        <div class="bento-item bento-contain" data-src="pics/drawings/drawing%204.jpeg">
+          <img src="pics/drawings/drawing%204.jpeg" alt="Drawing 4">
+          <div class="bento-overlay"><span>Drawing 4</span></div>
+        </div>
+      </div>
+
+    </div><!-- /#tab-drawing -->
+
+    <!-- Lightbox -->
+    <div id="bento-modal" aria-hidden="true">
+      <button id="bento-modal-close" aria-label="Close">&times;</button>
+      <img id="bento-modal-img" src="" alt="Drawing enlarged">
+    </div>
+
+    <!-- ── READING TAB ─────────────────────────────────── -->
+    <div class="personal-pane" id="tab-reading">
+
+      <div class="g4-header">
+        <div class="g4-header-left">
+          <h2 class="g4-title">Reading</h2>
+          <p class="g4-desc">Books that permanently changed how I see the world — ones I keep coming back to.</p>
+        </div>
+        <div class="g4-nav-btns">
+          <button class="g4-btn" id="reading-prev" aria-label="Previous slide" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="g4-btn" id="reading-next" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="g4-track-wrap">
+        <div class="g4-track" id="reading-track">
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="https://picsum.photos/seed/dune2024/600/340" alt="Dune" loading="lazy">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Dune — Frank Herbert</div>
+                <div class="g4-card-text">The science fiction novel. Politics, ecology, religion, prophecy, and destiny woven into a desert world. The spice must flow.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="https://picsum.photos/seed/dostoevsky24/600/340" alt="Crime and Punishment" loading="lazy">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Crime &amp; Punishment — Dostoevsky</div>
+                <div class="g4-card-text">Raskolnikov's psychological spiral mirrors every moral question I've ever asked myself. Dostoevsky understood the human mind before psychology existed.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="https://picsum.photos/seed/threebody24/600/340" alt="The Three-Body Problem" loading="lazy">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">The Three-Body Problem — Liu Cixin</div>
+                <div class="g4-card-text">A Chinese sci-fi masterpiece that makes you feel cosmically small. The Dark Forest theory permanently changed how I think about civilisation.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="https://picsum.photos/seed/sapiens2024/600/340" alt="Sapiens" loading="lazy">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">Sapiens — Yuval Noah Harari</div>
+                <div class="g4-card-text">After reading it, you look at everything — money, nations, religion, AI — as collective fictions we all agreed to believe. Permanently perspective-shifting.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="g4-dots" id="reading-dots">
+        <button class="g4-dot active" aria-label="Go to slide 1"></button>
+        <button class="g4-dot" aria-label="Go to slide 2"></button>
+        <button class="g4-dot" aria-label="Go to slide 3"></button>
+        <button class="g4-dot" aria-label="Go to slide 4"></button>
+      </div>
+
+    </div><!-- /#tab-reading -->
+
+
+    <!-- ── TRAVELS TAB ────────────────────────────────── -->
+    <div class="personal-pane" id="tab-travels">
+
+      <!-- Languages -->
+      <div class="travel-languages reveal-up">
+        <h3 class="travel-section-label">&#x1F5E3;&#xFE0F; Languages I Speak</h3>
+        <div class="travel-lang-row">
+          <div class="travel-lang-card">
+            <span class="travel-lang-flag">&#x1F1E9;&#x1F1FF;</span>
+            <span class="travel-lang-name">Arabic</span>
+            <span class="travel-lang-level">Native</span>
+          </div>
+          <div class="travel-lang-card">
+            <span class="travel-lang-flag">&#x1F1EB;&#x1F1F7;</span>
+            <span class="travel-lang-name">French</span>
+            <span class="travel-lang-level">Fluent</span>
+          </div>
+          <div class="travel-lang-card">
+            <span class="travel-lang-flag">&#x1F1EC;&#x1F1E7;</span>
+            <span class="travel-lang-name">English</span>
+            <span class="travel-lang-level">Fluent</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Countries -->
+      <div class="g4-header" style="margin-top:2.5rem;">
+        <div class="g4-header-left">
+          <h2 class="g4-title">Countries I've Visited</h2>
+          <p class="g4-desc">Five countries, each one reshaping how I see the world.</p>
+        </div>
+        <div class="g4-nav-btns">
+          <button class="g4-btn" id="travels-prev" aria-label="Previous slide" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="g4-btn" id="travels-next" aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="g4-track-wrap">
+        <div class="g4-track" id="travels-track">
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="pics/countries/canada.jpg" alt="Canada">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">&#x1F1E8;&#x1F1E6; Canada &nbsp;<span style="font-size:0.75rem;opacity:0.7;font-weight:400;">1 month · Toronto</span></div>
+                <div class="g4-card-text">A month living in Toronto — the city's diversity is unlike anything I'd seen before. Every neighbourhood felt like a different country inside one city.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="pics/countries/tunisia.jpg" alt="Tunisia">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">&#x1F1F9;&#x1F1F3; Tunisia &nbsp;<span style="font-size:0.75rem;opacity:0.7;font-weight:400;">7 visits · Multiple cities</span></div>
+                <div class="g4-card-text">Seven visits and it never gets old. The medinas, the sea, the food, the chaos of the souks — Tunisia is woven into who I am.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="pics/countries/moroco.jpg" alt="Morocco">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">&#x1F1F2;&#x1F1E6; Morocco &nbsp;<span style="font-size:0.75rem;opacity:0.7;font-weight:400;">Visited · Marrakech</span></div>
+                <div class="g4-card-text">The colours of Marrakech, the labyrinthine medinas, mint tea and tajine. Morocco overwhelms all the senses at once — and I mean that in the best way.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="pics/countries/united%20kingdom.jpg" alt="United Kingdom">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">&#x1F1EC;&#x1F1E7; United Kingdom &nbsp;<span style="font-size:0.75rem;opacity:0.7;font-weight:400;">Living here · Exeter</span></div>
+                <div class="g4-card-text">Home for university. Exeter is a medieval city studying the future — Roman walls, a 900-year-old cathedral, and a world-class CS department.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="g4-item">
+            <div class="g4-card">
+              <img src="pics/countries/turque.webp" alt="Turkey">
+              <div class="g4-card-overlay"></div>
+              <div class="g4-card-content">
+                <div class="g4-card-title">&#x1F1F9;&#x1F1F7; Turkey &nbsp;<span style="font-size:0.75rem;opacity:0.7;font-weight:400;">Visited · Istanbul</span></div>
+                <div class="g4-card-text">Istanbul sits at the literal crossroads of continents — East meets West on a single bridge. The Bosphorus at sunset, the Grand Bazaar. Unforgettable.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="g4-dots" id="travels-dots">
+        <button class="g4-dot active" aria-label="Go to slide 1"></button>
+        <button class="g4-dot" aria-label="Go to slide 2"></button>
+        <button class="g4-dot" aria-label="Go to slide 3"></button>
+        <button class="g4-dot" aria-label="Go to slide 4"></button>
+        <button class="g4-dot" aria-label="Go to slide 5"></button>
+      </div>
+
+    </div><!-- /#tab-travels -->
+
+  </section><!-- /#personal -->
+
+  <!-- ─── Footer ──────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="nav-logo" style="font-size:1.1rem">MYK<span class="logo-dot">.</span></a>
+      <div class="footer-line"></div>
+      <p class="footer-copy">&copy; 2024 Khelifi Mohamed Yacine. Built with care.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

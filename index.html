@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khelifi Mohamed Yacine — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-grid-overlay"></div>
+
+  <!-- ─── Particle Intro (top of page, inline) ─────────── -->
+  <section id="particle-intro">
+    <canvas id="particle-canvas"></canvas>
+    <a href="#hero" class="particle-scroll-hint" aria-label="Scroll down">
+      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ─── Navigation ─────────────────────────────────── -->
+  <header id="navbar">
+    <div class="nav-inner">
+
+      <!-- Left: logo + desktop links -->
+      <div class="nav-left">
+        <a href="#particle-intro" class="nav-logo">MYK<span class="logo-dot">.</span></a>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#hero"     class="nav-link">Home</a></li>
+            <li><a href="#about"    class="nav-link">About</a></li>
+
+            <!-- Projects dropdown -->
+            <li class="nav-has-dropdown">
+              <button class="nav-link nav-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+                Projects
+                <svg class="nav-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M1 1l5 5 5-5"/>
+                </svg>
+              </button>
+              <div class="nav-dropdown" role="menu">
+                <div class="nav-dropdown-grid">
+                  <a href="project.html?id=brain-tumor" class="nav-dropdown-link" role="menuitem">
+                    <span class="nav-dd-icon">&#x1F9E0;</span>
+                    <span class="nav-dd-text">
+                      <strong>AI &amp; ML</strong>
+                      <span>Brain tumors, vision, LLMs</span>
+                    </span>
+                  </a>
+                  <a href="project.html?id=syntax-squad" class="nav-dropdown-link" role="menuitem">
+                    <span class="nav-dd-icon">&#x1F310;</span>
+                    <span class="nav-dd-text">
+                      <strong>Web Dev</strong>
+                      <span>Django, Flask, PHP</span>
+                    </span>
+                  </a>
+                  <a href="project.html?id=sentiment-analysis" class="nav-dropdown-link" role="menuitem">
+                    <span class="nav-dd-icon">&#x1F4CA;</span>
+                    <span class="nav-dd-text">
+                      <strong>NLP</strong>
+                      <span>Sentiment, text mining</span>
+                    </span>
+                  </a>
+                  <a href="project.html?id=logic-programming" class="nav-dropdown-link" role="menuitem">
+                    <span class="nav-dd-icon">&#x2699;&#xFE0F;</span>
+                    <span class="nav-dd-text">
+                      <strong>Systems</strong>
+                      <span>Haskell, Prolog, game dev</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="nav-dropdown-footer">
+                  <span>12 projects total &mdash;</span>
+                  <a href="#projects" class="nav-dropdown-all">View all &rarr;</a>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="#skills"   class="nav-link">Skills</a></li>
+            <li><a href="#contact"  class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Right: CTA buttons + hamburger -->
+      <div class="nav-right">
+        <a href="https://github.com/khelifiMohamedYacine" target="_blank" rel="noopener" class="nav-cta nav-cta-ghost">GitHub</a>
+        <a href="https://linkedin.com/in/khelifi-mohamed-yacine-917382293" target="_blank" rel="noopener" class="nav-cta nav-cta-primary">LinkedIn</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <!-- Animated hamburger → X (ported from MenuToggleIcon) -->
+          <svg class="nav-toggle-icon" viewBox="0 0 32 32" fill="none"
+               stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path class="nav-toggle-path1"
+                  d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"/>
+            <path d="M7 16 27 16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#hero"     class="mobile-nav-link">Home</a></li>
+          <li><a href="#about"    class="mobile-nav-link">About</a></li>
+          <li>
+            <span class="mobile-nav-section">Projects</span>
+            <div class="mobile-nav-sub">
+              <a href="project.html?id=brain-tumor" class="mobile-nav-link">AI &amp; ML</a>
+              <a href="project.html?id=syntax-squad" class="mobile-nav-link">Web Dev</a>
+              <a href="project.html?id=sentiment-analysis" class="mobile-nav-link">NLP</a>
+              <a href="project.html?id=logic-programming" class="mobile-nav-link">Systems</a>
+            </div>
+          </li>
+          <li><a href="#skills"   class="mobile-nav-link">Skills</a></li>
+          <li><a href="#contact"  class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+          <a href="https://github.com/khelifiMohamedYacine" target="_blank" rel="noopener" class="nav-cta nav-cta-ghost" style="width:100%;justify-content:center;">GitHub</a>
+          <a href="https://linkedin.com/in/khelifi-mohamed-yacine-917382293" target="_blank" rel="noopener" class="nav-cta nav-cta-primary" style="width:100%;justify-content:center;">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Hero ───────────────────────────────────────── -->
+  <section id="hero">
+    <div class="grid-overlay"></div>
+    <div class="scanline"></div>
+
+    <div class="hero-content">
+
+      <div class="hero-text reveal-right">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">
+          <span>Mohamed</span>
+          <span class="name-accent">Yacine</span>
+        </h1>
+        <div class="hero-role-line">
+          <span class="role-label">[ </span>
+          <span id="role-typed"></span>
+          <span class="cursor-blink">_</span>
+          <span class="role-label"> ]</span>
+        </div>
+        <p class="hero-bio">
+          Computer Science student at the University of Exeter &mdash; building intelligent systems,
+          full-stack applications, and data-driven solutions at the intersection of AI and software engineering.
+          When I'm not coding: anime, drawing, books, and writing.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <span class="btn-text">View My Work</span>
+            <span class="btn-shine"></span>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+          <a href="personal.html" class="btn btn-ghost">More About My Life</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="12">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="8">0</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-label">Years Coding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="avatar-3d-wrap">
+        <model-viewer
+          src="avatar.glb"
+          autoplay
+          animation-crossfade-duration="0"
+          camera-orbit="-37deg 90deg 2.8m"
+          camera-target="0m 0.9m 0m"
+          field-of-view="30deg"
+          disable-zoom
+          interaction-prompt="none"
+          style="width:420px;height:580px;background:transparent;--poster-color:transparent;"
+        ></model-viewer>
+      </div>
+
+    </div>
+
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ─── About ──────────────────────────────────────── -->
+  <section id="about">
+    <div class="section-header reveal-up">
+      <p class="section-tag">// who I am</p>
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <p class="about-lead">
+          I'm <strong>Khelifi Mohamed Yacine</strong>, a Computer Science student with a passion for building
+          software that sits at the frontier of artificial intelligence and real-world usability. From training
+          neural networks on medical imaging data to architecting microservice pipelines powered by large language
+          models, I thrive on turning complex problems into elegant, working systems.
+        </p>
+        <p class="about-body">
+          My academic journey has taken me across the full spectrum of computer science &mdash; machine learning,
+          computer vision, natural language processing, full-stack web development, functional programming, and
+          agile team collaboration. Every project I've shipped has sharpened a different edge of my engineering
+          instinct.
+        </p>
+        <blockquote class="about-quote">
+          "I don't just write code — I build systems that think."
+        </blockquote>
+      </div>
+
+      <div class="about-cards reveal-right">
+
+        <div class="info-card" style="--card-accent:#0a84ff">
+          <div class="info-card-inner">
+            <div class="info-card-front">
+              <span class="card-icon-lg">&#x1F393;</span>
+              <div class="card-front-body">
+                <h3 class="card-front-title">BSc Computer Science</h3>
+                <p class="card-front-sub">University of Exeter</p>
+                <p class="card-front-year">Final Year &middot; 2022 – 2025</p>
+              </div>
+            </div>
+            <div class="info-card-back">
+              <div class="card-back-logo">
+                <img src="../pics/University-of-Exeter.png" alt="University of Exeter">
+              </div>
+              <div class="card-back-body">
+                <p class="card-back-headline">University of Exeter</p>
+                <p class="card-back-text">Final year studying Machine Learning, Computer Vision, NLP, Functional Programming, and Software Engineering — covering both the theory and the systems that put it into practice.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card" style="--card-accent:#30d158">
+          <div class="info-card-inner">
+            <div class="info-card-front">
+              <span class="card-icon-lg">&#x1F4CD;</span>
+              <div class="card-front-body">
+                <h3 class="card-front-title">United Kingdom</h3>
+                <p class="card-front-sub">Exeter, England</p>
+                <p class="card-front-year">Remote &middot; Hybrid &middot; On-site</p>
+              </div>
+            </div>
+            <div class="info-card-back">
+              <div class="card-back-logo card-back-logo--location">
+                <img src="../pics/england.jpg" alt="Exeter, England">
+              </div>
+              <div class="card-back-body">
+                <p class="card-back-headline">Open to the World</p>
+                <p class="card-back-text">Based in Exeter, UK — available for remote, hybrid, or on-site roles anywhere. Having lived across 5 countries, I adapt quickly to any team culture and timezone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ─── Projects ───────────────────────────────────── -->
+  <section id="projects">
+    <div class="section-header reveal-up">
+      <p class="section-tag">// what I've built</p>
+      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+    </div>
+
+    <!-- ─── Orbital Projects Display ─────────────────────── -->
+    <div id="orbital-wrap" class="reveal-up">
+
+      <!-- Stage: three spinning rings -->
+      <div id="orbital-stage">
+
+        <!-- Center orb -->
+        <div class="orb-center-wrap" id="orb-center" title="Click to pause / resume rotation">
+          <div class="orb-ping-1"></div>
+          <div class="orb-ping-2"></div>
+          <div class="orb-core" id="orb-core"></div>
+        </div>
+
+        <!-- Ring tracks sized by JS -->
+        <div class="orb-track" id="orb-track-1"></div>
+        <div class="orb-track" id="orb-track-2"></div>
+        <div class="orb-track" id="orb-track-3"></div>
+
+        <!-- Project nodes injected by JS -->
+      </div>
+
+      <!-- Notice — below stage, outside rings -->
+      <div class="orb-notice" id="orb-notice">
+        <span class="orb-notice-dot"></span>
+        Click the central circuit to pause rotation, then select a project node
+      </div>
+
+      <!-- Side info panel -->
+      <div id="orb-panel">
+
+        <div id="orb-panel-idle">
+          <div class="orb-idle-icon">&#x25CE;</div>
+          <p class="orb-idle-hint">Click any node<br>to see project details</p>
+          <div class="orb-ring-legend">
+            <div class="orb-legend-row"><span class="orb-leg-dot r1"></span><span>Inner — Core Projects</span></div>
+            <div class="orb-legend-row"><span class="orb-leg-dot r2"></span><span>Middle — Academic</span></div>
+            <div class="orb-legend-row"><span class="orb-leg-dot r3"></span><span>Outer — Additional</span></div>
+          </div>
+        </div>
+
+        <div id="orb-panel-detail" style="display:none">
+          <button class="orb-close" id="orb-close" aria-label="Close">&#x2715;</button>
+          <div class="orb-detail-head">
+            <span class="orb-detail-num" id="pop-num">01</span>
+            <span class="card-tag" id="pop-tag">AI / ML</span>
+          </div>
+          <h3 class="orb-detail-title" id="pop-title">Title</h3>
+          <p class="orb-detail-desc" id="pop-desc">Description.</p>
+          <div class="orb-detail-tech" id="pop-tech"></div>
+          <a class="btn btn-primary orb-detail-btn" id="pop-link" href="#">
+            <span class="btn-text">View Details &rarr;</span>
+            <span class="btn-shine"></span>
+          </a>
+        </div>
+
+      </div>
+    </div><!-- /#orbital-wrap -->
+
+    <div class="projects-grid" style="display:none">
+
+      <!-- Project 1: Brain Tumor -->
+      <article class="project-card reveal-up" data-category="ai">
+        <div class="card-glow"></div>
+        <div class="card-number">01</div>
+        <div class="card-tag ai-tag">AI / ML</div>
+        <h3 class="card-title">Brain Tumor Classification</h3>
+        <p class="card-desc">
+          Developed a convolutional neural network to detect and classify brain tumors from MRI scans.
+          Implemented systematic hyperparameter tuning (learning rate, batch size, dropout) to optimize model
+          accuracy, achieving strong performance on a real-world medical imaging dataset.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; Medical Imaging CNN</span>
+          <span class="highlight">&#x2713; Hyperparameter Optimization</span>
+          <span class="highlight">&#x2713; Real Dataset Validation</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">Keras</span>
+          <span class="tech-tag">Jupyter</span>
+          <span class="tech-tag">NumPy</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=brain-tumor" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 2: Computer Vision -->
+      <article class="project-card reveal-up" data-category="ai">
+        <div class="card-glow"></div>
+        <div class="card-number">02</div>
+        <div class="card-tag ai-tag">Computer Vision</div>
+        <h3 class="card-title">Computer Vision Pipeline</h3>
+        <p class="card-desc">
+          Tackled five advanced computer vision challenges spanning image segmentation, feature extraction,
+          object recognition, and spatial analysis. Implemented and compared multiple algorithmic approaches,
+          producing detailed technical analysis of each method's performance and trade-offs.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; Multi-algorithm Comparison</span>
+          <span class="highlight">&#x2713; Image Segmentation</span>
+          <span class="highlight">&#x2713; Feature Extraction</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">scikit-image</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">Jupyter</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=computer-vision" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 3: Enterprise Microservices LLM -->
+      <article class="project-card reveal-up" data-category="ai systems">
+        <div class="card-glow"></div>
+        <div class="card-number">03</div>
+        <div class="card-tag systems-tag">Enterprise / LLM</div>
+        <h3 class="card-title">LLM Microservices Platform</h3>
+        <p class="card-desc">
+          Architected a three-tier microservices system integrating the Mistral AI large language model.
+          Built an LLM service, a regex-based guardrails enforcer for content moderation, and an orchestrator
+          (Auberge) that routes prompts through guardrails before returning controlled AI responses.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; 3-Service Architecture</span>
+          <span class="highlight">&#x2713; Content Guardrails</span>
+          <span class="highlight">&#x2713; Mistral AI Integration</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Mistral AI</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">Microservices</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=llm-microservices" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 4: AI Goal App -->
+      <article class="project-card reveal-up" data-category="ai web">
+        <div class="card-glow"></div>
+        <div class="card-number">04</div>
+        <div class="card-tag web-tag">AI + Full-Stack</div>
+        <h3 class="card-title">AI Goal Achievement Platform</h3>
+        <p class="card-desc">
+          A full-stack intelligent coaching application that helps users set, track, and achieve personal
+          goals. Features an AI-powered conversational chatbot, a smart plan generator that creates
+          personalized roadmaps, and automated YouTube and article recommendation engines.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; AI Chatbot Interface</span>
+          <span class="highlight">&#x2713; Smart Plan Generator</span>
+          <span class="highlight">&#x2713; YouTube &amp; Article Search</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">SQLite</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=ai-goal-platform" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 5: Syntax Squad Django -->
+      <article class="project-card reveal-up" data-category="web">
+        <div class="card-glow"></div>
+        <div class="card-number">05</div>
+        <div class="card-tag web-tag">Team / Web App</div>
+        <h3 class="card-title">Syntax Squad — Campus Web App</h3>
+        <p class="card-desc">
+          Led and contributed to a 7-person agile team to deliver a fully-featured Django web application,
+          live-deployed on PythonAnywhere. Includes user authentication, quizzes, an interactive jumping game,
+          and a locations explorer powered by NetworkX graph algorithms.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; 7-Person Agile Sprint</span>
+          <span class="highlight">&#x2713; Live Deployment</span>
+          <span class="highlight">&#x2713; Graph Algorithms</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Django</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">NetworkX</span>
+          <span class="tech-tag">Matplotlib</span>
+          <span class="tech-tag">PythonAnywhere</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=syntax-squad" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 6: Sentiment Analysis -->
+      <article class="project-card reveal-up" data-category="nlp ai">
+        <div class="card-glow"></div>
+        <div class="card-number">06</div>
+        <div class="card-tag nlp-tag">NLP / Data Science</div>
+        <h3 class="card-title">Cross-Domain Sentiment Analysis</h3>
+        <p class="card-desc">
+          Investigated whether textual features predict sentiment across domains (movies, restaurants,
+          products) using 15,000 reviews. Compared lexicon-based (VADER) against ML classifiers
+          (Logistic Regression, SVM) and analyzed cross-domain generalisation with cosine similarity.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; 15,000-Review Dataset</span>
+          <span class="highlight">&#x2713; VADER vs ML Comparison</span>
+          <span class="highlight">&#x2713; Cross-Domain Analysis</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">NLTK</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">TF-IDF</span>
+          <span class="tech-tag">HuggingFace</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=sentiment-analysis" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 7: Logic & Functional -->
+      <article class="project-card reveal-up" data-category="systems">
+        <div class="card-glow"></div>
+        <div class="card-number">07</div>
+        <div class="card-tag systems-tag">Languages</div>
+        <h3 class="card-title">Logic &amp; Functional Programming</h3>
+        <p class="card-desc">
+          Implemented algorithmic solutions in two declarative paradigms: logic programming in Prolog
+          (calendar reasoning, prime number generation, constraint solving) and functional programming
+          in Haskell (type-safe data transformations and recursive algorithms).
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; Prolog Constraint Logic</span>
+          <span class="highlight">&#x2713; Haskell Type Systems</span>
+          <span class="highlight">&#x2713; Declarative Paradigms</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Prolog</span>
+          <span class="tech-tag">Haskell</span>
+          <span class="tech-tag">Declarative Programming</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=logic-programming" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 8: Battleship -->
+      <article class="project-card reveal-up" data-category="web systems">
+        <div class="card-glow"></div>
+        <div class="card-number">08</div>
+        <div class="card-tag systems-tag">Game Dev</div>
+        <h3 class="card-title">Battleship — AI Opponent Game</h3>
+        <p class="card-desc">
+          Built a fully-featured Battleship game with dual interfaces: a command-line mode and a
+          browser-based web UI. Implemented an AI opponent with intelligent attack generation, multiple
+          ship placement algorithms (simple, random, custom JSON), and real-time game state management.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; AI Opponent Engine</span>
+          <span class="highlight">&#x2713; Web + CLI Interfaces</span>
+          <span class="highlight">&#x2713; 3 Placement Algorithms</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">HTML/CSS</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=battleship" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 9: Web Dev PHP -->
+      <article class="project-card reveal-up" data-category="web">
+        <div class="card-glow"></div>
+        <div class="card-number">09</div>
+        <div class="card-tag web-tag">Web Dev</div>
+        <h3 class="card-title">Responsive Multi-Page PHP Website</h3>
+        <p class="card-desc">
+          Designed and built a full multi-page web platform with PHP backend: user authentication
+          (registration, login, logout), a memory card pairs game with real-time leaderboard, responsive
+          CSS layouts with glass effects, and a contact form. Deployed on a remote VM via SSH tunneling.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; User Auth System</span>
+          <span class="highlight">&#x2713; Interactive Memory Game</span>
+          <span class="highlight">&#x2713; Live Leaderboard</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">PHP</span>
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">Azure VM</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=web-dev-php" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 10: Cycling Race -->
+      <article class="project-card reveal-up" data-category="systems">
+        <div class="card-glow"></div>
+        <div class="card-number">10</div>
+        <div class="card-tag systems-tag">Java / OOP</div>
+        <h3 class="card-title">Cycling Race Simulation</h3>
+        <p class="card-desc">
+          Object-oriented Java simulation of a multi-stage cycling race. Models riders, teams, stages,
+          and race standings using inheritance hierarchies, interfaces, and polymorphism — applying core
+          OOP design principles to a real-world competitive sports domain.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; OOP Class Hierarchy</span>
+          <span class="highlight">&#x2713; Race Stage Management</span>
+          <span class="highlight">&#x2713; Live Standings Engine</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">OOP</span>
+          <span class="tech-tag">Interfaces</span>
+          <span class="tech-tag">Collections API</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=cycling-race" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 11: Systems C -->
+      <article class="project-card reveal-up" data-category="systems">
+        <div class="card-glow"></div>
+        <div class="card-number">11</div>
+        <div class="card-tag systems-tag">Systems / C</div>
+        <h3 class="card-title">Systems Programming in C</h3>
+        <p class="card-desc">
+          Low-level systems programming coursework in C, covering memory management, pointer arithmetic,
+          data structures, and process control. Developed with a focus on performance, correctness,
+          and understanding how software interacts directly with hardware and the OS.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; Manual Memory Management</span>
+          <span class="highlight">&#x2713; Pointer Arithmetic</span>
+          <span class="highlight">&#x2713; Low-Level Data Structures</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">C</span>
+          <span class="tech-tag">GCC</span>
+          <span class="tech-tag">Valgrind</span>
+          <span class="tech-tag">Make</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=systems-c" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Project 12: Java Card Game -->
+      <article class="project-card reveal-up" data-category="systems">
+        <div class="card-glow"></div>
+        <div class="card-number">12</div>
+        <div class="card-tag systems-tag">Java / Concurrency</div>
+        <h3 class="card-title">Java Multi-Threaded Card Game</h3>
+        <p class="card-desc">
+          Concurrent Java implementation of a multi-player card game using threads, synchronisation,
+          and blocking queues. Multiple players run as independent threads, drawing and discarding cards
+          simultaneously, with thread-safe game state management and atomic win detection.
+        </p>
+        <div class="card-highlights">
+          <span class="highlight">&#x2713; Multi-threaded Players</span>
+          <span class="highlight">&#x2713; Blocking Queue Decks</span>
+          <span class="highlight">&#x2713; Atomic Win Detection</span>
+        </div>
+        <div class="card-tech">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Threads</span>
+          <span class="tech-tag">Synchronisation</span>
+          <span class="tech-tag">JUnit</span>
+        </div>
+        <div class="card-footer">
+          <div class="card-line"></div>
+          <a href="project.html?id=java-card-game" class="card-detail-link">View Details &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─── Skills ─────────────────────────────────────── -->
+  <section id="skills">
+    <div class="section-header reveal-up">
+      <p class="section-tag">// what I work with</p>
+      <h2 class="section-title">Skills &amp; <span class="accent">Tech</span></h2>
+    </div>
+
+    <div class="sticker-wrap reveal-up">
+
+      <!-- Row 1 -->
+      <div class="sticker-ticker">
+        <div class="sticker-inner">
+          <div class="sticker" style="--r:-2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"><span>Python</span></div>
+          <div class="sticker" style="--r:1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+          <div class="sticker" style="--r:-1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" loading="lazy"><span>TypeScript</span></div>
+          <div class="sticker" style="--r:2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" loading="lazy"><span>HTML5</span></div>
+          <div class="sticker" style="--r:-1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" loading="lazy"><span>CSS3</span></div>
+          <div class="sticker" style="--r:1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" loading="lazy"><span>PHP</span></div>
+          <div class="sticker" style="--r:-2.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" loading="lazy"><span>Java</span></div>
+          <div class="sticker" style="--r:1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" loading="lazy"><span>C</span></div>
+          <div class="sticker" style="--r:-1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" loading="lazy"><span>TensorFlow</span></div>
+          <div class="sticker" style="--r:2.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" loading="lazy"><span>PyTorch</span></div>
+          <div class="sticker" style="--r:-2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" loading="lazy"><span>NumPy</span></div>
+          <div class="sticker" style="--r:1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg" alt="OpenCV" loading="lazy"><span>OpenCV</span></div>
+          <div class="sticker" style="--r:-1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/haskell/haskell-original.svg" alt="Haskell" loading="lazy"><span>Haskell</span></div>
+        </div>
+      </div>
+
+      <!-- Row 2 (reverse direction) -->
+      <div class="sticker-ticker sticker-reverse">
+        <div class="sticker-inner">
+          <div class="sticker sticker-invert" style="--r:2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" loading="lazy"><span>Flask</span></div>
+          <div class="sticker sticker-invert" style="--r:-1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django" loading="lazy"><span>Django</span></div>
+          <div class="sticker" style="--r:1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" loading="lazy"><span>Git</span></div>
+          <div class="sticker sticker-invert" style="--r:-2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"><span>GitHub</span></div>
+          <div class="sticker" style="--r:1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy"><span>MySQL</span></div>
+          <div class="sticker" style="--r:-1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg" alt="SQLite" loading="lazy"><span>SQLite</span></div>
+          <div class="sticker" style="--r:2.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" loading="lazy"><span>Jupyter</span></div>
+          <div class="sticker" style="--r:-2.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" loading="lazy"><span>Linux</span></div>
+          <div class="sticker" style="--r:1.5deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" loading="lazy"><span>VS Code</span></div>
+          <div class="sticker" style="--r:-1deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"><span>Pandas</span></div>
+          <div class="sticker" style="--r:2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" loading="lazy"><span>Docker</span></div>
+          <div class="sticker" style="--r:-2deg"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="scikit-learn" loading="lazy"><span>scikit-learn</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Contact ────────────────────────────────────── -->
+  <section id="contact">
+    <div class="section-header reveal-up">
+      <p class="section-tag">// let's connect</p>
+      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <p class="contact-lead">
+          I'm currently open to new opportunities, collaborations, and interesting conversations.
+          Whether you have a project in mind or just want to say hello &mdash; my inbox is always open.
+        </p>
+        <div class="contact-items">
+          <a href="mailto:khelifiyacine36@gmail.com" class="contact-item">
+            <div class="contact-item-icon">&#x2709;</div>
+            <div>
+              <p class="contact-item-label">Email</p>
+              <p class="contact-item-value">khelifiyacine36@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/khelifiMohamedYacine" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon">&#x25C9;</div>
+            <div>
+              <p class="contact-item-label">GitHub</p>
+              <p class="contact-item-value">github.com/khelifiMohamedYacine</p>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/khelifi-mohamed-yacine-917382293" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-item-icon">&#x1F517;</div>
+            <div>
+              <p class="contact-item-label">LinkedIn</p>
+              <p class="contact-item-value">in/khelifi-mohamed-yacine</p>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#x1F4CD;</div>
+            <div>
+              <p class="contact-item-label">Location</p>
+              <p class="contact-item-value">United Kingdom</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal-right" id="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <div class="input-line"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          <div class="input-line"></div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          <div class="input-line"></div>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-shine"></span>
+        </button>
+        <p class="form-note" id="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">MYK<span class="logo-dot">.</span></span>
+      <p class="footer-copy">
+        &copy; 2025 Khelifi Mohamed Yacine &mdash; Built with pure HTML, CSS &amp; JS
+      </p>
+      <div class="footer-line"></div>
+    </div>
+  </footer>
+
+<script src="main.js"></script>
+</body>
+</html>
