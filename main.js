@@ -737,6 +737,9 @@
         });
       }
     });
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tab.click(); }
+    });
   });
 }());
 
