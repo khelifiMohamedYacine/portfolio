@@ -2222,8 +2222,7 @@ footer {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
 }
 .glow-menu-item {
   position: relative;
@@ -2301,10 +2300,12 @@ footer {
 .glow-menu-item[data-tab="drawing"]:hover  .glow-item-back { color: #ff2d78; }
 .glow-menu-item[data-tab="reading"]:hover  .glow-item-back { color: #b44dff; }
 .glow-menu-item[data-tab="travels"]:hover  .glow-item-back { color: #f9d71c; }
-/* Mobile */
+/* Mobile — shrink to stay on one line */
 @media (max-width: 480px) {
-  .glow-menu-item { padding: 8px 12px; }
-  .glow-item-front, .glow-item-back { font-size: 0.82rem; gap: 5px; }
+  .glow-menu-list { padding: 6px; gap: 2px; }
+  .glow-menu-item { padding: 8px 10px; }
+  .glow-item-front, .glow-item-back { font-size: 0.78rem; gap: 4px; }
+  .glow-item-wrap { height: 20px; }
 }
 
 /* ── Panes ──────────────────────────────────────────────── */
