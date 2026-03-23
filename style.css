@@ -609,6 +609,15 @@ section {
 /* corner brackets hidden for clean Apple look */
 .avatar-corner { display: none; }
 
+/* 3D Model-Viewer Avatar */
+.avatar-3d-wrap {
+  flex-shrink: 0;
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Hero Text */
 .hero-text { flex: 1; }
 .hero-greeting {
@@ -733,7 +742,7 @@ section {
 }
 
 /* ── About ────────────────────────────────────────────── */
-#about { background: var(--bg2); padding-left: 40px; padding-right: 40px; }
+#about { background: var(--bg2); padding-left: 64px; padding-right: 64px; }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1583,11 +1592,13 @@ footer {
   .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
+  #about { padding-left: 6%; padding-right: 6%; }
   .nav-desktop { display: none; }
   .nav-cta-ghost, .nav-cta-primary { display: none; }
   .nav-toggle { display: flex; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-line  { display: none; }
+  .avatar-3d-wrap model-viewer { width: 280px !important; height: 386px !important; }
 }
 
 @media (max-width: 480px) {
@@ -1595,6 +1606,9 @@ footer {
   .about-cards { grid-template-columns: 1fr; }
   .hero-stats { gap: 16px; }
   .projects-grid { grid-template-columns: 1fr; }
+  .avatar-3d-wrap model-viewer { width: 220px !important; height: 304px !important; }
+  .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cta .btn { width: 100%; max-width: 280px; }
 }
 
 /* ══════════════════════════════════════════════════════════
