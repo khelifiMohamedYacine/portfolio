@@ -438,3 +438,10 @@
   .pd-nav-center-dot { display: none; }
   .pd-learnings-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  .pd-nav-inner { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  .pd-nav-btn { max-width: 100%; }
+  .pd-nav-next { text-align: left; }
+  .pd-hero-links { flex-direction: column; }
+  .pd-link-btn { justify-content: center; }
+}

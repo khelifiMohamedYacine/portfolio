@@ -123,7 +123,7 @@
   const ctx       = canvas.getContext('2d');
   const particles = [];
   // Scale pixel sampling with canvas area so particle count stays sane
-  const PIXEL_STEPS   = Math.max(6, Math.round(6 * Math.sqrt((W * H) / 500000)));
+  const PIXEL_STEPS   = Math.max(window.innerWidth < 768 ? 10 : 6, Math.round(6 * Math.sqrt((W * H) / 500000)));
   const DRAW_POINTS   = true;
   const FRAMES_PER_WORD = 500;
 
@@ -269,12 +269,13 @@
 
   let W, H, particles;
 
+  const _mob = window.innerWidth <= 768;
   const CONFIG = {
-    count:       80,
+    count:       _mob ? 35 : 80,
     speed:       0.3,
     radius:      { min: 0.5, max: 1.8 },
     opacity:     { min: 0.05, max: 0.35 },
-    connections: 120,
+    connections: _mob ? 80 : 120,
     colors:      ['#00d4ff', '#8b5cf6', '#f0abfc'],
   };
 
@@ -567,6 +568,7 @@
 
 /* ── Card 3D tilt on mousemove ──────────────────────────── */
 (function initTilt() {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect   = card.getBoundingClientRect();
@@ -644,6 +646,7 @@
 
 /* ── Neon cursor trail ──────────────────────────────────── */
 (function initCursorTrail() {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   const dots   = [];
   const N      = 10;
   const colors = ['#00d4ff', '#4abfff', '#7aaeff', '#9e9ef6', '#c47ef7', '#f0abfc'];
@@ -754,7 +757,8 @@
   /* ── Anime: falling sakura petals ── */
   function buildAnime() {
     const colors = ['#ff6baa','#c44dff','#ff9ef7','#bd44ff','#ff4fcb'];
-    const petals = Array.from({ length: 70 }, () => ({
+    const petalCount = window.innerWidth < 768 ? 35 : 70;
+    const petals = Array.from({ length: petalCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       rx: Math.random() * 7 + 3,
@@ -788,7 +792,8 @@
 
   /* ── Drawing: drifting sketch lines ── */
   function buildDrawing() {
-    const lines = Array.from({ length: 40 }, () => ({
+    const lineCount = window.innerWidth < 768 ? 20 : 40;
+    const lines = Array.from({ length: lineCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       len: Math.random() * 100 + 30,
@@ -819,7 +824,8 @@
   /* ── Reading: rising golden glyphs ── */
   function buildReading() {
     const pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789αβγδεζθλπΣΩ∞∂∇';
-    const glyphs = Array.from({ length: 55 }, () => ({
+    const glyphCount = window.innerWidth < 768 ? 28 : 55;
+    const glyphs = Array.from({ length: glyphCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       char: pool[Math.floor(Math.random() * pool.length)],
@@ -847,7 +853,8 @@
 
   /* ── Travels: constellation stars ── */
   function buildTravels() {
-    const stars = Array.from({ length: 90 }, () => ({
+    const starCount = window.innerWidth < 768 ? 45 : 90;
+    const stars = Array.from({ length: starCount }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       vx: (Math.random() - 0.5) * 0.35,
