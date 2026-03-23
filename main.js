@@ -158,12 +158,17 @@
     off.height   = H;
     const offCtx = off.getContext('2d');
 
-    // Font scales with viewport height so text fills the screen
-    const fontSize = Math.floor(word.length > 10 ? H * 0.14 : H * 0.19);
+    // Font scales with viewport height, then shrinks to fit canvas width
+    const maxFontByH = Math.floor(word.length > 10 ? H * 0.14 : H * 0.19);
     offCtx.fillStyle    = 'white';
-    offCtx.font         = `bold ${fontSize}px Arial`;
     offCtx.textAlign    = 'center';
     offCtx.textBaseline = 'middle';
+    offCtx.font = `bold ${maxFontByH}px Arial`;
+    const measuredW = offCtx.measureText(word).width;
+    const fontSize  = measuredW > W * 0.88
+      ? Math.floor(maxFontByH * (W * 0.88 / measuredW))
+      : maxFontByH;
+    offCtx.font = `bold ${fontSize}px Arial`;
     offCtx.fillText(word, W / 2, H / 2);
 
     const pixels = offCtx.getImageData(0, 0, W, H).data;
