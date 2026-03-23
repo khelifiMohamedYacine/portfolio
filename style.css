@@ -2474,13 +2474,13 @@ footer {
 
 @media (max-width: 640px) {
   .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 200px 200px 200px;
-    grid-template-areas:
-      "a a"
-      "b c"
-      "d e";
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    grid-template-areas: unset;
   }
+  .bento-grid .bento-item { height: 260px; grid-area: unset; }
+  .bento-extra { grid-template-columns: 1fr; }
+  .bento-extra .bento-item { height: 260px; }
 }
 
 .gc-drawing-layout {
