@@ -1558,7 +1558,6 @@ footer {
   .avatar-3d-wrap model-viewer { width: 280px !important; height: 386px !important; }
   .nav-desktop { display: none; }
   .nav-cta-ghost, .nav-cta-primary { display: none; }
-  .nav-toggle { display: flex; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-line  { display: none; }
 }
@@ -2876,15 +2875,6 @@ html.light .icon-sun  { display: block; }
   html:not(.dark) .icon-sun  { display: block; }
 }
 
-/* Hide lang/theme on very small screens in desktop nav; show in mobile menu */
-@media (max-width: 767px) {
-  .nav-right .lang-switcher,
-  .nav-right .theme-toggle { display: none; }
-  .mobile-nav-controls { display: flex; align-items: center; justify-content: center; gap: 8px; padding-top: 8px; }
-}
-@media (min-width: 768px) {
-  .mobile-nav-controls { display: none; }
-}
 
 /* ══════════════════════════════════════════════════════════
    Light mode — CSS variable overrides
