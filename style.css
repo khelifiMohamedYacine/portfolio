@@ -2751,6 +2751,11 @@ footer {
 }
 .g4-card:hover .g4-read-more { gap: 0.75rem; }
 
+/* Book card title — name + author split */
+#tab-reading .g4-card-title { display: flex; flex-direction: column; gap: 4px; }
+.book-name { font-size: 1rem; font-weight: 700; line-height: 1.2; }
+.book-author { font-size: 0.68rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; }
+
 /* Book cards — portrait layout, full cover visible */
 #tab-reading .g4-item { flex: 0 0 210px; }
 @media (min-width: 1024px) { #tab-reading .g4-item { flex: 0 0 230px; } }
